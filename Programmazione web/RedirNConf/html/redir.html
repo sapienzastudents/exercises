@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirection Test</title>
+</head>
+<body>
+    <h3>Welcome to this page, here you find test for redirection</h3>
+    <table border="1" width="">
+        <tr>
+            <th>URL</th>
+            <th>sendRedirect</th>
+            <th>forward</th>
+        </tr>
+        <tr>
+            <td>Completo</td>
+            <td><a href="redtest.html?complete&sendred">Test</a></td> <!--sendredirect-->
+            <td>
+                <a href="redtest.html?complete&forward&req">On Request</a><br/>
+                <a href="redtest.html?complete&forward&con">On Context</a>
+            </td> <!--forward-->
+        </tr>
+        <tr>
+            <td>Relativo al Server</td>
+            <td><a href="redtest.html?relserv&sendred">Test</a></td> <!--sendredirect-->
+            <td>
+                    <a href="redtest.html?relserv&forward&req">On Request</a><br/>
+                    <a href="redtest.html?relserv&forward&con">On Context</a>
+            </td> <!--forward-->
+        </tr>
+        <tr>
+            <td>Relativo al contesto</td>
+            <td><a href="redtest.html?relcon&sendred">Test</a></td> <!--sendredirect-->
+            <td>
+                    <a href="redtest.html?relcon&forward&req">On Request</a><br/>
+                    <a href="redtest.html?relcon&forward&con">On Context</a>
+            </td> <!--forward-->
+        </tr>
+        <tr>
+            <td>Relativo</td>
+            <td><a href="redtest.html?rel&sendred">Test</a></td> <!--sendredirect-->
+            <td>
+                    <a href="redtest.html?rel&forward&req">On Request</a><br/>
+                    <a href="redtest.html?rel&forward&con">On Context</a>
+            </td> <!--forward-->
+            </tr>
+    </table>
+</body>
+</html>

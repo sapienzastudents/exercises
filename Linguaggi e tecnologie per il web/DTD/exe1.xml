@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE CorsoDiLaurea [
+    <!ELEMENT CorsoDiLaurea (Corso+)>
+    <!ELEMENT Corso (NomeCorso, DescrizioneCorso?, Docente+, Studente*)>
+    <!ELEMENT Docente (Cognome, Nome, Dipartimento, (Foto|Commento)*)>
+    <!ELEMENT Studente (Cognome, Nome, (Foto|Commento)*)>
+    <!ELEMENT NomeCorso (#PCDATA)>
+    <!ELEMENT DescrizioneCorso (#PCDATA)>
+    <!ELEMENT Cognome (#PCDATA)>
+    <!ELEMENT Nome (#PCDATA)>
+    <!ELEMENT Dipartimento (#PCDATA)>
+    <!ELEMENT Foto EMPTY>
+    <!ELEMENT Commento (#PCDATA)>
+    <!ATTLIST CorsoDiLaurea
+                facolta CDATA #REQUIRED>
+    <!ATTLIST Corso
+                numeroCrediti CDATA #REQUIRED
+                semestre (primo|secondo|annuale) #REQUIRED 
+                sede CDATA  #IMPLIED
+                tipo (obbligatorio|opzionale) #IMPLIED >
+    <!ATTLIST Studente
+                matricola CDATA #REQUIRED>
+    <!ATTLIST Foto
+                url CDATA #REQUIRED>
+]>
+
+<CorsoDiLaurea facolta="Informatica">
+    <Corso numeroCrediti="18" semestre="primo">
+        <NomeCorso>Linguaggi e tecnologie per il Web</NomeCorso>
+        <Docente>
+            <Cognome>Rosati</Cognome>
+            <Nome>Riccardo</Nome>
+            <Dipartimento>Ingegneria Informatica</Dipartimento>
+        </Docente>
+    </Corso>
+</CorsoDiLaurea>

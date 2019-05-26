@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Scrivere un documento HTML che permette di caricare in modo asincrono, me-
+    diante posizionamento del mouse su 4 stringhe di testo, 4 diversi documenti HTML in 4 zone
+    distinte del documento stesso.</p>
+
+    <span id="doc1" name="1">Documento 1</span><br>
+    <span id="doc2" name="2">Documento 2</span><br>
+    <span id="doc3" name="3">Documento 3</span><br>
+    <span id="doc4" name="4">Documento 4</span><br><hr>
+
+    <div id="view1"></div><br>
+    <div id="view2"></div><br>
+    <div id="view3"></div><br>
+    <div id="view4"></div><br>
+
+    <script>
+        var docs = document.getElementsByTagName("span");
+        for(var i=0;i<docs.length;i++){
+            docs[i].onmouseover = function(){
+                var xhr= new XMLHttpRequest();
+                xhr.num = "view" + this.getAttribute("name");
+                xhr.open("GET","docpart/"+this.id+".html");
+                xhr.send();
+
+                xhr.onload = function(e){
+                    if(e.target.status==200){
+                        var v = document.getElementById(xhr.num);
+                        v.innerHTML = xhr.responseText;
+                    }
+                    else{
+                        alert("error");
+                    }
+                }
+            }
+        }
+    </script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!--
+Scrivere un documento HTML contenente una form contenente i seguenti campi:
+• cognome (campo testuale, 40 caratteri)
+• nome (campo testuale, 30 caratteri)
+• matricola (campo numerico, 7 caratteri, minimo 0, massimo 1234567)
+• regione di residenza (da scegliere da un menu che riporta le 20 regioni italiane)
+• email (30 caratteri)
+• telefono (16 caratteri)
+• status  (campo  testuale  con  autocompletion,  valori  predefiniti:   in  corso,  fuori  corso,
+  ripetente, part-time)
+• richieste particolari (area di testo editabile di 12 righe per 60 colonne)
+• bottone di invio
+• bottone di reset
+
+in modo tale che, al momento dell’invio della form, il browser esegua i seguenti controlli:
+• verifica che il cognome non sia vuoto;
+• verifica che il nome non sia vuoto;
+• verifica che la matricola sia un numero;
+• verifica che il telefono sia un numero;
+• verifica che sia stata selezionata una regione.
+
+Tali controlli NON devono essere effettuati tramite codice JavaScript.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style> 
+        * {
+            margin: 0.2em;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <input type="text" name="cognome" maxlength="40" size="40"  required> Cognome <br>
+        <input type="text" name="nome" maxlength="30" size="30" required> Nome <br>
+        <input type="number" name="matricola" maxlength="7" size="7" minlength="0" max="1234567"> Matricola <br>
+        <select name="reg-res" required>
+                <option value="lazio">Lazio</option>
+                <option value="lombardia">Lombardia</option>
+                <option value="val d'aosta">Valle D'Aosta</option>
+                <option value="trentino">Trentino Alto Adige</option>
+                <option value="calabria">Calabria</option>
+                <option value="sicilia">Sicilia</option>
+                <option value="sardegna">Sardegna</option>
+                <option value="basilicata">Basilicata</option>
+                <option value="campania">Campania</option>
+                <option value="toscana">Toscana</option>
+                <option value="umbria">Umbria</option>
+                <option value="molise">Molise</option>
+                <option value="friuli">Friuli Venezia Giulia</option>
+                <option value="puglia">Puglia</option>
+                <option value="veneto">Veneto</option>
+                <option value="liguria">Liguria</option>
+                <option value="marche">Marche</option>
+                <option value="abruzzo">Abruzzo</option>
+                <option value="romagna">Emilia Romagna</option>
+                <option value="piemonte">Piemonte</option>
+        </select> Regione di residenza <br>
+        <input type="email" name="email" maxlength="30" size="30"> Email <br>
+        <input type="number" name="tel" maxlength="16" size="16"> Telefono <br>
+        <input type="text" name="status" list="dlst">Status<br>
+        <datalist id="dlst">
+            <option value="in corso">In corso</option>
+            <option value="fuori corso">Fuori corso</option>
+            <option value="ripetente">Ripetente</option>
+            <option value="part-time">Part-Time</option>
+        </datalist>
+        <textarea name="" id="" cols="60" rows="12"></textarea> <br>
+        <input type="submit" value="Invio"> <input type="reset" value="Reset">
+    </form>
+</body>
+</html>

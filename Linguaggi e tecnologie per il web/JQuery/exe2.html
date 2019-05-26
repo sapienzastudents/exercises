@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--Scrivere un documento HTML contenente tre bottoni, tre elementi
+<h1>
+e due
+elementi
+<div>
+e che utilizza JQuery per realizzare le seguenti funzioni:
+•
+quando viene premuto il primo bottone, il contenuto testuale di tutti gli elementi
+<h1>
+viene cancellato;
+•
+quando viene premuto il secondo bottone, il contenuto testuale del primo elemento
+<div>
+viene visualizzato in rosso;
+•
+quando il puntatore (mouse) viene posizionato sul terzo bottone, il contenuto testuale
+del secondo elemento
+<div>
+diventa uguale alla stringa ”abc”-->
+
+    <h1>Primo titolo</h1>
+    <h1>Secondo titolo</h1>
+    <h1>Terzo titolo</h1>
+    <br/>
+    <button id="bottone1">Bottone 1</button>
+    <button id="bottone2">Bottone 2</button>
+    <button id="bottone3">Bottone 3</button>
+    <br/>
+    <div id="primoDiv">Primo elemento div</div>
+    <div id="secondoDiv">Secondo elemento div</div>
+    <hr/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("#bottone1").on("click",function(){
+            $("h1").text("");
+        });
+
+        $("#bottone2").on("click", function(){
+            $("#primoDiv").css("color","red");
+        });
+
+        $("#bottone3").on("mouseover",function(){
+            $("#secondoDiv").text("abc");
+        });
+    </script>
+</body>
+</html>

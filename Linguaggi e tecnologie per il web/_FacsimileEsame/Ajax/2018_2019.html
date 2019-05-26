@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX: esercizio esame</title>
+    </head>
+    <body>
+        inizio documento
+        <hr/>
+        <div>
+            <button id="doc1" class="first">doc1</button>
+            <button id="doc2" class="first">doc2</button>
+            <button id="doc3" class="first">doc3</button>
+            <button id="doc4" class="first">doc4</button>
+            <button id="doc5" class="second">doc5</button>
+            <button id="doc6" class="second">doc6</button>
+            <button id="doc7" class="second">doc7</button>
+            <button id="doc8" class="second">doc8</button>
+        </div>
+        <hr/>
+        <div id="zona1">
+            prima zona di visualizzazione dei documenti
+        </div>
+        <hr/>
+        <div id="zona2">
+        seconda zona di visualizzazione dei documenti
+        </div>
+        <hr/>
+        fine documento
+    
+    <script>
+        var buttons = document.getElementsByTagName("button");
+        var view1 = document.getElementById("zona1");
+        var view2 = document.getElementById("zona2");
+
+        for(var i=0;i<buttons.length;i++){
+            buttons[i].onclick = function(){
+                var xhr = new XMLHttpRequest();
+                xhr.num = this.getAttribute("class");
+                console.log(xhr.num);
+                xhr.open("GET","docpart/"+this.id+".html");
+                xhr.send()
+
+                xhr.onload = function(e){
+                    if(e.target.status==200){
+                        if(xhr.num=="first"){
+                            view1.innerHTML = xhr.responseText;
+                        }
+                        else{
+                            view2.innerHTML = xhr.responseText;
+                        }
+                    }
+                }
+            }
+        }
+    </script>    
+
+    </body>
+</html>

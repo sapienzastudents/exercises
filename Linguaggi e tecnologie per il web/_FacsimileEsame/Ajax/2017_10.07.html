@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--Modificare il documento HTML in modo da poter attivare, cliccando sull’elemento <li> corrispondente,  
+        il caricamento asincrono delle 16 URL elencate nel documento: 
+        i  documenti provenienti dal dominio uniroma1.it vanno visualizzati all’interno del primo elemento div,  
+        quelli provenienti dal dominio example.com vanno visualizzati all’interno del secondo elemento div, 
+        e quelli provenienti dal dominio xyz.abc vanno visualizzati all’interno del terzo elemento div.-->
+    <ul>
+        <!--Prova con half-->
+        <li>half/www.uniroma1.it/addr1.html</li>
+        <li>half/www.example.com/addr2.html</li>
+        <li>half/www.xyz.abc/addr3.html</li>
+        <!--Fine prova-->
+
+        <li>http://www.example.com/index.htm</li>
+        <li>http://www.example.com/index2.htm</li>
+        <li>http://www.uniroma1.it/esempio/e1.htm</li>
+        <li>http://www.uniroma1.it/esempio/e2.htm</li>
+        <li>http://www.xyz.abc/a.htm</li>
+        <li>http://www.xyz.abc/ab.htm</li>
+        <li>http://www.uniroma1.it/esempio/e3.htm</li>
+        <li>http://www.uniroma1.it/esempio/e4.htm</li>
+        <li>http://www.example.com/index3.htm</li>
+        <li>http://www.example.com/index4.htm</li>
+        <li>http://www.uniroma1.it/altro/a.htm</li>
+        <li>http://www.uniroma1.it/altro/b.htm</li>
+        <li>http://www.xyz.abc/abc.htm</li>
+        <li>http://www.xyz.abc/abcd.htm</li>
+        <li>http://www.uniroma1.it/altro/c.htm</li>
+        <li>http://www.uniroma1.it/altro/d.htm</li>
+    </ul>
+    <div id="uniroma1">visualizza qui i documenti che provengono da uniroma1.it</div><hr/>
+    <div id="example">visualizza qui i documenti che provengono da example.com</div><hr/>
+    <div id="xyz">visualizza qui i documenti che provengono da xyz.abc</div><br/><hr/>
+
+    <script>
+        var elements = document.getElementsByTagName("li");
+        for(var i=0;i<elements.length;i++){
+            elements[i].onclick = function(){
+                var xhr = new XMLHttpRequest();
+                xhr.url = this.textContent;
+                xhr.open("GET",xhr.url);
+                xhr.send();
+
+                xhr.onload = function(){
+                    if(xhr.url.includes("uniroma1.it")){
+                        document.getElementById("uniroma1").innerHTML = xhr.responseText;
+                    }
+                    else if(xhr.url.includes("example.com")){
+                        document.getElementById("example").innerHTML = xhr.responseText;
+                    }
+                    else{
+                        document.getElementById("xyz").innerHTML = xhr.responseText;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

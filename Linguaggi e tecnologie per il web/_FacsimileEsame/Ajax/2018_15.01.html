@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 15/01/2018</title>
+</head>
+<body>
+    <!--modificare  il  documento  HTML  in  modo  da  poter  attivare,  cliccando  sull’elemento
+        <li> corrispondente,  il  caricamentoasincrono delle URL elencate nel documento:  
+        ogni documento va visualizzato nell’elemento <li> in cui compare la sua URL,
+        senza però cancellare la URL stessa.-->
+    <ul>
+        <li>doc1.html</li>
+        <li>doc2.html</li>
+        <li>doc3.html</li>
+        <li>doc4.html</li>
+        <li>doc5.html</li>
+        <li>doc6.html</li>
+        <li>doc7.html</li>
+        <li>doc8.html</li>
+    </ul>
+
+    <script>
+        var elem = document.getElementsByTagName("li");
+        for(var i=0;i<elem.length;i++){
+            elem[i].onclick = function(){
+                var xhr = new XMLHttpRequest();
+                xhr.li = this;
+                xhr.url = this.textContent;
+                xhr.open("GET", "docpart/"+xhr.url);
+                xhr.send();
+
+                xhr.onload = function(){
+                    xhr.li.innerHTML = xhr.url + xhr.responseText;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <style></style>
+  </head>
+  <body>
+    <ul>
+      <li> Il click di ogni elemento di classe c1 fa diventare
+           l’elemento di colore blu;</li>
+      <li> il doppio click di ogni elemento di classe c1 fa sparire
+            l’elemento;</li>
+      <li> il click su qualsiasi elemento span di classe c2
+           fa sparire tutti gli elementi di classe c1.</li>
+      </ul>
+
+    <div>Div 1</div>
+    <div>Div 2</div>
+    <div>Div 3</div>
+    <span class="c1">Primo span classe 1</span><br/>
+    <span class="c2">Primo span classe 2</span><br/>
+    <span class="c1">Secondo span classe 1</span><br/>
+    <span class="c2">Secondo span classe 2</span><br/>
+    <span class="c1">Terzo span classe 1</span><br/>
+    <span class="c2">Terzo span classe 2</span>
+    <div class="c1">Questo  un div di classe 1</div>
+    <div class="c2">Questo  un div di classe 2</div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+
+    <script>
+      $(".c1").on("click",function(){
+        $(this).css("color","blue");
+      });
+
+      $(".c1").on("dblclick", function(){
+        $(this).hide();
+      });
+
+      $("span.c2").on("click",function(){
+        $(".c1").hide();
+      });
+    </script>
+    </body>
+</html>

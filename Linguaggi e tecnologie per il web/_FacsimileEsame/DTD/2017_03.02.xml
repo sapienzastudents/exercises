@@ -1,0 +1,50 @@
+<!--
+1) dire se la DTD `e corretta ed in caso negativo evidenziare gli errori presenti e correggerli; 
+2) scrivere un documento XMLche sia valido rispetto alla DTD (eventualmente corretta).
+-->
+<!--
+<!DOCTYPE r [
+<!ELEMENT r ((c|(d,e)*),f?,a,b,g)>
+<!ELEMENT a (r*,c,c+,((e*)|(f*)))>
+<!ELEMENT b ((b|f),(c|e))>
+<!ELEMENT c #PCDATA>                ERRORE MANCANO LE PARENTESI
+<!ELEMENT d ANY>
+<!ELEMENT e (#PCDATA|(c|d)*)>       ERRORE NELLA STRUTTURA DELLA MIXED MODE
+<!ELEMENT f (#PCDATA|d|e|f|g)*>
+<!ELEMENT g EMPTY>
+<!ATTLIST a attr CDATA #IMPLIED
+            attra CDATA #REQUIRED>
+<!ATTLIST g attr CDATA #REQUIRED>
+]>
+-->
+
+<?xml version="1.0"?>
+<!DOCTYPE r [
+<!ELEMENT r ((c|(d,e)*),f?,a,b,g)>
+<!ELEMENT a (r*,c,c+,((e*)|(f*)))>
+<!ELEMENT b ((b|f),(c|e))>
+<!ELEMENT c (#PCDATA)>            
+<!ELEMENT d ANY>
+<!ELEMENT e (#PCDATA|c|d)*>       
+<!ELEMENT f (#PCDATA|d|e|f|g)*>
+<!ELEMENT g EMPTY>
+<!ATTLIST a attr CDATA #IMPLIED
+            attra CDATA #REQUIRED>
+<!ATTLIST g attr CDATA #REQUIRED>
+]>
+
+<r>
+    <a attra="valuea">
+        <c/>
+        <c/>
+    </a>
+    <b>
+        <f/>
+        <c/>
+    </b>
+    <g attr="value"/>
+</r>
+
+
+
+

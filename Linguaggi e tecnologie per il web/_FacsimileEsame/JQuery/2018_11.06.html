@@ -1,0 +1,66 @@
+<!--
+Modificare (il meno possibile) il documento HTML in modo che, ogni volta che viene cliccata una casella 
+della tabella, venga effettuato il caricamento asincrono del documento la cui URL è scritta in quella casella.  
+Ogni documento va visualizzato nell’ultimo elemento td contenuto nella riga della tabella che contiene 
+la casella di testo in questione.
+Si utilizzi JQuery
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 11/06/2018</title>
+    <style>*{margin:0.2em}</style>
+</head>
+<body>
+    <table border="1">
+        <tr name="1">
+            <td>doc1.html</td>
+            <td>doc2.html</td>
+            <td>doc3.html</td>
+            <td>doc4.html</td>
+            <td>doc5.html</td>
+            <td id="view1">visualizza qui i documenti le cui URL sono scritte nelle caselle di questa riga</td>
+        </tr>
+        <tr name="2">
+            <td>doc5.html</td>
+            <td>doc4.html</td>
+            <td>doc3.html</td>
+            <td>doc2.html</td>
+            <td>doc1.html</td>
+            <td id="view2">visualizza qui i documenti le cui URL sono scritte nelle caselle di questa riga</td>
+        </tr>
+        <tr name="3">
+            <td>doc1.html</td>
+            <td>doc2.html</td>
+            <td>doc4.html</td>
+            <td>doc3.html</td>
+            <td>doc5.html</td>
+            <td id="view3">visualizza qui i documenti le cui URL sono scritte nelle caselle di questa riga</td>
+        </tr>
+    </table>
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>    
+    <script>
+        $("tr").on("click", function(e){
+            var target = e.target;
+            var xhr = new XMLHttpRequest();
+            xhr.part= $(this).attr("name");
+            xhr.open("GET","docpart/"+$(target).text());
+            xhr.send();
+
+            xhr.onload = function(e){
+                if(e.target.status==200){
+                    $("#view"+xhr.part).html(xhr.responseText);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 10/07/2017</title>
+</head>
+<body onload="init()">
+    <!--Si assuma che il local storage contenga in un campo URLvisitate un array di URL (stringhe).
+        Scrivere un documento HTML che contiene una form che visualizza tale lista di URL e presenta un 
+        bottone Cancella e un bottone Visita a fianco di ogni URL: 
+        premendo il bottone Cancella relativo ad una URL, questa viene cancellata dall’array URL visitate del 
+        local storage, e la form viene aggiornata eliminando tale URL; 
+        premendo il bottone Visita, viene visualizzata la URL corrispondente in un’altra finestra o scheda 
+        del browser.-->
+
+    <form action="" name="modulo">
+        <input type="url" name="link"> URL <br>
+        <input type="submit" value="Inserisci" onclick="inserisci(event)">
+    </form>
+
+    <ul id="lst">
+
+    </ul>
+
+    <script>
+        function init(){
+            if(localStorage.URLvisitate==undefined){
+                localStorage.URLvisitate ="[]"
+            }
+        }
+
+        function inserisci(e){
+            e.preventDefault();
+            var link = document.modulo.link.value;
+            var lista = JSON.parse(localStorage.URLvisitate);
+            if(!lista.includes(link)){
+                lista.push(link);    
+            }
+            localStorage.URLvisitate = JSON.stringify(lista);
+            update();
+        }
+
+        function visita(idx){
+            var lista = JSON.parse(localStorage.URLvisitate);
+            open(lista[idx],"_blank");
+        }
+
+        function cancella(idx){
+            var lista = JSON.parse(localStorage.URLvisitate);
+            lista.splice(idx,1);
+            localStorage.URLvisitate = JSON.stringify(lista);
+            update();
+        }
+
+        function update(){
+            var lista = JSON.parse(localStorage.URLvisitate);
+            var show = document.getElementById("lst"); 
+            show.innerHTML="";
+            for(var i=0;i<lista.length;i++){
+                show.innerHTML+= "<li>"+lista[i] + "<button onclick='visita("+i+")'>Visita</button><button onclick='cancella("+i+")'>Cancella</button></li>"
+                
+            }
+            localStorage.URLvisitate = JSON.stringify(lista);
+        }
+    </script>
+</body>
+</html>

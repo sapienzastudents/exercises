@@ -1,0 +1,130 @@
+<!-- Scrivere un documento HTML contenente una form contenente i seguenti campi:
+• matricola (casella di testo editabile lunga 12 caratteri)
+• corso di laurea (da scegliere da un menu che riporta alcuni corsi di laurea, inclusi IngInfAut e IngInf)
+• tipo corso (selezionabile tramite un menu a due opzioni, T e M)
+• email (casella di testo editabile lunga 30 caratteri)
+• anno di corso (casella di testo editabile lunga 2 caratteri)
+• numero esami sostenuti (da scegliere da un menu a tendina contenente i numeri da 0 a 25)
+• media voti esami (casella di testo editabile lunga 6 caratteri)
+• foto (permette all’utente di caricare un file con una sua foto) 
+• bottone di invioe in cui vengano effettuati tramite funzioni JavaScript i seguenti controlli:
+    (a1)  verifica che la matricola sia un numero e che contenga un minimo di 5 cifre e un massimo di 9 cifre.  
+          Questa verifica vafatta all’atto dell’invio della form;
+    (a2)  verifica che, se il tipo corso di laurea selezionato `e T, allora l’anno di corso sia un numero 
+          compreso tra 1 e 3 oppuresia la stringa “FC”, e se il tipo corso di laurea selezionato `e M, 
+          allora l’anno di corso sia un numero compreso tra 1 e 2oppure sia la stringa “FC”. 
+          Questa verifica va fatta ogni volta che l’utente cambia o il valore del campo anno di corso 
+          o il valore del campo tipo corso;
+    (a3)  verifica che, se il numero di esami sostenuti selezionato `e 0, allora la media dei voti degli esami è 0.  
+          Questa verifica vafatta ogni volta che cambia il numero di esami sostenuti;
+    (a4)  verifica che, se il corso di laurea selezionato `e IngInfAut, allora o la matricola o l’email 
+          sono non vuoti. Questa verificava fatta all’atto dell’invio della form;
+    (a5)  verifica che, se il corso di laurea selezionato `e IngInfAut, allora il valore del campo tipo corso `e T, 
+          mentre se il corso dilaurea selezionato `e IngInf, allora il valore del campo tipo corso `e M.
+          Questa verifica va fatta ogni volta che cambia ilcampo corso di laurea.
+    (b) Per ognuno dei controlli specificati al punto (a), dire se `e realizzabile in HTML5 senza utilizzare 
+        codice JavaScript, e incaso positivo, spiegare come.-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Exam 11/06/2018</title>
+        <style>*{margin : 0.2em}</style>
+    </head>
+    <body>
+        <form action="" name="modulo" onsubmit="return valida();">
+            <input type="text" maxlength="12" size="12" name="matricola">Matricola<br>
+            <select name="corsoLaurea" onchange="corsoL()" >
+                <option value="nessuno" selected></option>
+                <option value="IngInfAut">Ingegneria Informatica Automatica</option>
+                <option value="IngInf">Ingegneria Informatica</option>
+            </select>Corso di Laurea <br>
+            <select name="tipoCorso" onchange="verAnno()">
+                <option value="nessuno" selected></option>
+                <option value="M">Magistrale</option>
+                <option value="T">Triennale</option>
+            </select>Tipo di Corso <br>
+            <input type="text" name="email" maxlength="30" size="30">Email<br>
+            <input type="text" name="ac" maxlength="2" size="2" oninput="verAnno()">Anno di corso <br>
+            <select name="es_sost" onchange="esami()">
+                <option value="0">0</option>
+                <option value="25">25</option>
+            </select>Esami sostenuti <br>
+            <input type="text" name="media" maxlength="6" size="6">Media <br>
+            <input type="file" name="foto">Foto <br>
+            <input type="submit">
+        </form>
+    
+    <script>
+        function valida(){
+            var matricola = document.modulo.matricola.value;
+            var email = document.modulo.email.value;
+            var corso = document.modulo.corsoLaurea.value;
+
+            if(isNaN(Number(matricola)) || matricola.length<5 || matricola.length>9){
+                alert("Matricola deve essere un numero di lunghezza compresa tra 5 e 9 inclusi");
+                return false;
+            }
+
+            if(corso=="IngInfAut"){
+                if(email.length==0 && matricola.length==0){
+                    alert("Selezionando IngInfAut, matricola o email non devono essere entrambi vuoti")
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function verAnno(){
+            var tipo = document.modulo.tipoCorso.value;
+            var anno = document.modulo.ac.value;
+
+            if(tipo=="T"){
+                if(anno!=1 || anno!=2 || anno!=3 || anno!="FC"){
+                    alert("Con tipo di corso T l'anno deve essere compreso tra 1 e 3 oppure deve essere FC");
+                    return false;
+                }
+            }
+
+            else if(tipo=="M"){
+                if(anno!=1 || anno!=2 || anno!="FC"){
+                    alert("Con tipo di corso M l'anno deve essere compreso tra 1 e 3 oppure deve essere FC");
+                    return false;
+                }
+            }
+        }
+
+        function esami(){
+            var esami = document.modulo.es_sost.value;
+            var media = document.modulo.media.value;
+
+            if(esami==0 && media!=0){
+                alert("media ed esami sostenuti non corrispondoni");
+            }
+        }
+
+        function corsoL(){
+            var corso = document.modulo.corsoLaurea.value;
+            var tipo = document.modulo.tipoCorso.value;
+
+            if(corso=="IngInfAut" && tipo!="T"){
+                alert("Il corso IngInfAut richiede tipo corso T");
+                return false;
+            }
+
+            if(corso=="IngInf" && tipo!="M"){
+                alert("Il corso IngInf richiede tipo corso M");
+                return false;
+            }
+
+        }
+
+        /*
+        a1) Per controllare che sia un numero si può usare il tipo input number per la lunghezza massima basta impostare maxlength a 9
+        */
+    </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!-- Scrivere un documento HTML contenente una form contenente i seguenti campi: 
+• cognome e nome (casella di testo editabile lunga 50 caratteri) 
+• sesso (selezionabile tramite due bottoni radio) 
+• ateneo (da scegliere da un menu che riporta le 3 universit romane) 
+• CAP (casella di testo editabile lunga 5 caratteri) 
+• studente lavoratore (selezionabile tramite checkbox) 
+• descrizione del lavoro svolto (casella di testo editabile lunga 80 caratteri) 
+• bottone di invio 
+• bottone di reset -->
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exe2</title>
+        <style>
+            * {
+                margin : 0.2em;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="elab.php" method="POST">
+                Nome e cognome <br>
+                <input type="text" name="" size="50" maxlength="50"> <br/>
+                
+                Sesso <br>
+                <input type="radio" name="sex" value="M"> M 
+                <input type="radio" name="sex" value="F"> F <br/>
+
+                Ateneo <br>
+                <select name="ateneo">
+                    <option value="sapienza">La Sapienza</option>
+                    <option value="roma3">Roma 3</option>
+                    <option value="torvergata">Torvergata</option>
+                </select> <br/>
+
+                CAP <br>
+                <input type="text" name="cap" size="5" maxlength="5"> <br/>
+
+                Studente lavoratore 
+                <input type="checkbox" name="studente_lav"> <br/>
+
+                Descrizione lavoro svolto <br>
+                <input type="text" size="80" maxlength="80" name="description"> <br/>
+
+                <input type="submit" value="Send"> <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>

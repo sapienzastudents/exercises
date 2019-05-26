@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Scrivere un documento HTML che permette di caricare in modo asincrono, 
+        mediante posizionamento del mouse su due stringhe di testo,  
+        due diversi documenti HTML in due zone distinte del documento stesso.</p>
+
+
+        <span id="doc1" name="1">Documento 1</span>
+
+        <span id="doc2" name="2">Documento 2</span>
+
+        <div id="view1">
+
+        </div>
+
+        <div id="view2">
+
+        </div>
+
+        <script>
+
+        var docs = document.getElementsByTagName("span");
+            for(var i=0;i<docs.length;i++){
+                docs[i].onmouseover = function(){
+                    var xhr= new XMLHttpRequest();
+                    xhr.num = "view" + this.getAttribute("name");
+                    xhr.open("GET","docpart/"+this.id+".html");
+                    xhr.send();
+
+                    xhr.onload = function(e){
+                        if(e.target.status==200){
+                            var v = document.getElementById(xhr.num);
+                            v.innerHTML = xhr.responseText;
+                        }
+                        else{
+                            alert("error");
+                        }
+                    }
+                }
+            }
+        </script>
+</body>
+</html>

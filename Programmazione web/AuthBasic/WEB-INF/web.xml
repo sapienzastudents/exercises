@@ -1,0 +1,45 @@
+<web-app>
+<!--Declare protect page-->
+<security-constraint>
+    <web-resource-collection>
+        <url-pattern>/html/protectedU1</url-pattern>
+        <url-pattern>/html/protectedU12</url-pattern>
+    </web-resource-collection>
+    
+    <auth-constraint>
+        <role-name>role1</role-name>
+    </auth-constraint>
+</security-constraint>
+
+<security-constraint>
+    <web-resource-collection>
+        <url-pattern>/html/protectedU2</url-pattern>
+        <url-pattern>/html/protectedU12</url-pattern>
+    </web-resource-collection>
+    
+    <auth-constraint>
+        <role-name>role2</role-name>
+    </auth-constraint>
+</security-constraint>
+
+<!--Authendication method-->
+<login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Test BASIC authentication</realm-name>
+</login-config>
+
+<!--Servlet config-->
+<servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>Login</servlet-class>
+</servlet>
+
+<!--Servlet mapping-->
+<servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/html/unprotected_page</url-pattern>
+    <url-pattern>/html/protectedU1</url-pattern>
+    <url-pattern>/html/protectedU2</url-pattern>
+    <url-pattern>/html/protectedU12</url-pattern>
+</servlet-mapping>
+</web-app>

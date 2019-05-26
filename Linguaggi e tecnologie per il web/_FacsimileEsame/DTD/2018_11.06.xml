@@ -1,0 +1,49 @@
+<!--
+<!DOCTYPE r [
+    <!ELEMENT r ((d,c,b,a)|(h,g,f,e))+>
+    <!ELEMENT a (#PCDATA|c|d|r)*>
+    <!ELEMENT b ((e+|f+),h,g,g*)>
+    <!ELEMENT c EMPTY>
+    <!ELEMENT d ((b,d,g)|(c,e,f)|h)>
+    <!ELEMENT e (e|b|(g,e))*>
+    <!ELEMENT f ((a,b)|(h,e,c)|(g,f*))>
+    <!ELEMENT g (#PCDATA|a*|b)*>           MIXED MODE ERRATA
+    <!ELEMENT h ANY>
+    <!ATTLIST c attr CDATA #REQUIRED
+                attrc CDATA #REQUIRED>
+    <!ATTLIST f attr CDATA #REQUIRED>
+]>
+-->
+
+<?xml version="1.0"?>
+<!DOCTYPE r [
+    <!ELEMENT r ((d,c,b,a)|(h,g,f,e))+>
+    <!ELEMENT a (#PCDATA|c|d|r)*>
+    <!ELEMENT b ((e+|f+),h,g,g*)>
+    <!ELEMENT c EMPTY>
+    <!ELEMENT d ((b,d,g)|(c,e,f)|h)>
+    <!ELEMENT e (e|b|(g,e))*>
+    <!ELEMENT f ((a,b)|(h,e,c)|(g,f*))>
+    <!ELEMENT g (#PCDATA|a|b)*>           
+    <!ELEMENT h ANY>
+    <!ATTLIST c attr CDATA #REQUIRED
+                attrc CDATA #REQUIRED>
+    <!ATTLIST f attr CDATA #REQUIRED>
+]>
+
+<r>
+    <d>
+        <h>
+            <e/>
+        </h>
+    </d>
+    <c attr="value1" attrc="value2" />
+    <b>
+        <f attr="value1">
+            <g>Testoooooo</g>
+        </f>
+        <h>Testooo</h>
+        <g>Testooo</g>
+    </b>
+    <a>Testooo</a>
+</r>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 20/07/2018</title>
+</head>
+<body>
+    <!--Scrivere un documento HTML contenente una form contenente i seguenti campi:
+        • cognome e nome (casella di testo editabile lunga 50 caratteri)
+        • matricola (casella di testo editabile lunga 12 caratteri)
+        • anno di corso (da scegliere da un menu con le opzioni “1”, “2”, “3”, “FC”);
+        • anno fuori corso (casella di testo editabile lunga 1 carattere).  Questo campo deve essere attivo (editabile) solo se se
+          l’anno di corso selezionato al campo precedente `e FC;
+        • canale di corso (da scegliere da un menu con le opzioni “1”, “2”, “Unico”);
+        • numero esami sostenuti (da scegliere da un menu a tendina contenente i numeri da 0 a 27)
+        • media voti esami (casella di testo editabile lunga 6 caratteri)
+        • dichiarazione di presa visione dell’informativa sulla privacy (casella di spunta)
+        • foto (permette all’utente di caricare un file con una sua foto)
+        • bottone di invio
+        e in cui vengano effettuati tramite funzioni JavaScript i seguenti controlli:
+        
+        (a1)  verifica che la matricola sia un numero e che contenga un minimo di 6 cifre e un massimo di 8 cifre.  Questa verifica va
+        fatta ogni volta che l’utente cambia la matricola;
+        
+        (a2)  verifica che, se il numero di esami sostenuti selezionato `e 0, allora la media dei voti degli esami `e 0.  Questa verifica va
+        fatta ogni volta che cambia il campo numero di esami sostenuti oppure il campo media;
+
+        (a3)  verifica che sia stata spuntata la casella di presa visione dell’informativa sulla privacy.  Questa verifica va fatta all’atto
+        dell’invio della form;
+
+        (a4)  verifica che, se l’anno di corso selezionato `e “3”, allora il valore del campo canale di corso `e “Unico”, e che, se l’anno
+        di corso selezionato `e “1” o “2”, allora il valore del campo canale di corso `e “1” se la lettera iniziale del cognome dello
+        studente `e compresa tra “A” e “K”, ed `e “2” se la lettera iniziale del cognome dello studente `e compresa tra “L” e “Z”.
+        Questa verifica va fatta ogni volta che cambia il campo anno di corso oppure il campo canale di corso.
+
+        (b) Per ognuno dei controlli specificati al punto (a), dire se `e realizzabile in HTML5 senza utilizzare codice JavaScript, e in
+        caso positivo, spiegare come.-->
+
+        <form action="" name="modulo" onsubmit="return privacy();">
+            Cognome e nome <input type="text" name="cognome" maxlength="50" size="50"><br>
+            Matricola <input type="text" name="matricola" maxlength="12" size="12" oninput="return controlla_matricola();"><br>
+            Anno Corso <select name="ac" onchange="return verifica_anno()">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="FC">FC</option>
+            </select>
+            Anno fuori corso <input type="text" name="afc" maxlength="1" size="1"><br>
+            Canale corso<select name="cc" onchange="return verifica_anno()">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="unico">unico</option>
+            </select><br>
+            Esami Sostenuti<select name="nex" onchange="return verifica_esami();">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+            </select><br>
+            Media Esami <input type="text" name="media" maxlength="6" size="6" oninput="return verifica_esami();"><br>
+            Presa visione informativa <input type="checkbox" name="inf" id="">
+            Foto <input type="file" name="foto" id=""><br>
+            <input type="submit">
+        </form>
+
+        <script>
+            function controlla_matricola(){
+                var matr = document.modulo.matricola.value;
+                if(isNaN(matr)){
+                    alert("la matricola deve essere un numero");
+                    return false;
+                }
+                if(matr.length<6 || matr.length>8){
+                    alert("La matricola deve essere lunga minimo 6 e massimo 8");
+                    return false;
+                }
+                return true;
+            }
+
+            function verifica_esami(){
+                var media = document.modulo.media.value;
+                var nex = document.modulo.nex.value;
+
+                if(media==0 && nex!=0 || media!=0 && nex==0){
+                    alert("media ed esami sostenuti non corrispondono");
+                    return false;
+                }
+            }
+
+            function verifica_anno() {
+                ac = document.modulo.ac.value;
+                cc = document.modulo.cc.value;
+                cognome = document.modulo.cognome.value;
+
+                if(ac<"3" && cc=="unico" || ac=="3" && cc!="unico"){
+                    alert("Per il 3° anno il canale è unico");
+                    return false;
+                }
+                if(cc=="2" && cognome.charAt(0)>"A" && cognome.charAt(0)<"K"){
+                    alert("Lo studente è nel canale sbagliato");
+                    return false;
+                }
+                if(cc=="1" && cognome.charAt(0)>"L" && cognome.charAt(0)<"Z"){
+                    alert("Lo studente è nel canale sbagliato");
+                    return false;
+                }
+                return true;
+            }
+
+            function privacy(){
+                if(!document.modulo.inf.checked){
+                    alert("spuntare casella privacy");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+
+</body>
+</html>

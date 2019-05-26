@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 15/01/2018</title>
+    <style>
+        *{
+            margin : 0.2em;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    (a) Scrivere un documento HTML contenente una form contenente i seguenti campi:
+        • Codice fiscale (casella di testo editabile lunga 16 caratteri)
+        • Cognome e nome (casella di testo editabile lunga 60 caratteri) 
+        • Data di nascita (casella di tipo date)
+        • Sesso (selezionabile tramite due bottoni radio)
+        • Regione di residenza (menu a tendina contenente le regioni italiane)
+        • Indirizzo (area di testo editabile di 6 righe per 80 colonne)
+        • Email (casella di testo editabile lunga 30 caratteri)
+        • Telefono (casella di testo editabile lunga 15 caratteri)
+        • Prodotto richiesto (menu a tendina contenente i valori 1, 2, 3, 4, 5, 6)
+        • Spedizione espresso (casella di checkbox)
+        • Bottone di invio
+        • Bottone di reset 
+        
+        e in cui vengano effettuati, tramite funzioni JavaScript, 
+        i seguenti controlli:
+          (a1) Verifica che il campo telefono contenga un numero. 
+               Questa verifica va fatta ogni volta che l’utente cambia il valore di questo campo;
+          (a2) Verifica che sia stata selezionata una regione.  
+               Questa verifica va fatta all’atto dell’invio della form;
+          (a3) Verifica  che, se si è selezionata la casella “spedizione  espresso”, 
+               allora il campo “prodotto  richiesto” non vuoto econtiene un valore da 4 a 6.  
+               Questa verifica va fatta all’invio della form;
+          (a4) Verifica che, se la regione di residenza non `e il Lazio, non sia selezionata la casella 
+               “spedizione espresso”, mentre se la regione di residenza `e il Lazio, o l’email o il telefono 
+               devono essere non vuoti.  
+               Questa verifica va fatta tutte le volte checambia il valore del campo regione di residenza;
+          (a5) Verifica che il campo indirizzo contenga almeno 15 caratteri.  
+               Questa verifica va fatta ogni volta che l’utente cambia ilvalore di questo campo.
+        
+          (b) Per ognuno dei controlli specificati al punto (a), dire se è realizzabile in HTML5 
+              senza utilizzare codice JavaScript, e incaso positivo, spiegare come.-->
+    
+    <form action="" name="modulo" onsubmit="return validate();">
+        <input type="text" name="cf" maxlength="16" size="16"> Codice fiscale <br>
+        <input type="text" name="nc" maxlength="60" size="60"> Cognome e Nome <br>
+        <input type="date" name="datan"> Data nascita <br>
+        <label>Sesso</label>
+        <input type="radio" name="sex" value="M">M <br>
+        <input type="radio" name="sex" value="F">F <br>
+        <select name="res" onchange="verres()">
+            <option value="nessuno" selected></option>
+            <option value="lazio">Lazio</option>
+            <option value="umbria">Umbria</option>
+            <option value="toscana">Toscana</option>
+        </select>Regione di Residenza <br>
+        <textarea name="addr"cols="80" rows="6" oninput="veraddr()"></textarea>Indirizzo <br>
+        <input type="text" name="email" maxlength="30" size="30">Email <br>
+        <input type="text" name="tel" maxlength="15" size="15" oninput="vertel()">Telefono <br>
+        <select name="prod">
+            <option value="nessuno" selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>Prodotto richiesto <br>
+        <input type="checkbox" name="espr"> Spedizione Espresso <br>
+        <input type="submit"> <input type="reset">
+    </form>
+
+    <script>
+        function validate(){
+            var espresso = document.modulo.espr.checked;
+            var prodotto = Number(document.modulo.prod.value);
+            var residenza = document.modulo.res.value;
+
+            if(residenza=="nessuno"){
+                alert("Selezionare una regione");
+                return false;
+            }
+            
+            if(espresso && (isNaN(prodotto) || prodotto<4)){
+                alert("la spedizione espresso richiede un prodotto tra 4 e 6");
+                return false;
+            }
+            return true;
+        }
+
+        function vertel(){
+            if( isNaN(Number(document.modulo.tel.value)) ){
+                alert("Il telefono deve contenere un numero")
+                return false;
+            }
+            return true;
+        }
+
+        function veraddr(){
+            if( document.modulo.addr.value.length < 15 ){
+                alert("L'indirizzo deve contenere almeno 15 caratteri");
+                return false;
+            }
+            return true;
+        }
+
+        function verres(){
+            var residenza = document.modulo.res.value;
+            var espresso = document.modulo.espr.checked;
+            var telefono = document.modulo.tel.value;
+            var email = document.modulo.email.value;
+
+            if(residenza!="lazio" && espresso){
+                alert("La spedizione espresso richiede Lazio come regione di residenza");
+                return false;
+            }
+            else if(residenza=="lazio" && (telefono.length==0 && email.length==0)){
+                alert("Se la regione è Lazio o il telefono o la email devono essere presenti");
+                return false;
+            }
+            return true;
+        }
+
+        /*
+         a1) si può usare l'input type="number"
+         a2) si può usare l'attributo required
+        */
+    </script>
+</body>
+</html>

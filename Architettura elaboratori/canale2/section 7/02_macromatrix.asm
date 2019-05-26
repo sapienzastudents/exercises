@@ -1,0 +1,1 @@
+# Trasformare il programma nella Traccia 1 in una macro.

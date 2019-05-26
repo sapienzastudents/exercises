@@ -1,0 +1,114 @@
+<!--Si assuma che il Local Storage contenga in un campoCarrelloun array di oggetti con 3 campi di tipo stringa,
+    codiceProdotto, numeroPezzi, prezzoUnitario. Scrivere un documento HTML che:
+    • Visualizza in due tabelle le informazioni  contenute  nell’arrayCarrellodel  Local  Storage.   
+      La prima tabella deve presentare le informazioni sui  prodotti di  cui  sono  stati  acquistati più di 3 
+      pezzi, mentre la seconda tabella deve presentare le informazioni sui restanti prodotti.   
+      Nelle  due  tabelle, il  codice  di  ogni  prodotto  deve  essere  un link ipertestuale alla pagina 
+      di quel prodotto, che si trova alla URL http://www.abc.com/<codice prodotto>.  
+      Inoltre, in entrambe le tabelle ogni riga deve contenere un bottoneCancellache permette di cancellare 
+      quel prodotto dal carrello.
+      La visualizzazione della tabella deve essere sempre aggiornata con il contenuto corrente dell’arrayCarrello;
+      
+    • Permette all’utente di aggiungere un nuovo prodotto nell’array Carrello del Local Storage, 
+      tramite una form con degliopportuni campi editabili e un bottone;
+      
+    • Deve infine essere presente un bottone Calcola totale il cui click fa comparire il costo totale dei prodotti 
+      presenti nel carrello.-->
+      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 11/06/2018</title>
+    <style>*{margin : 0.2em}</style>
+</head>
+<body onload="init()">
+    <form action="" name="modulo">
+      <input type="text" name="codice"> Codice del Prodotto <br>
+      <input type="text" name="pezzi"> Pezzi <br>
+      <input type="text" name="costo"> Prezzo unitario <br>
+      <input type="submit" value="Inserisci" onclick="insert(event);">
+    </form><br>
+
+    <label>Prodotti con più di 3 pezzi</label>
+    <table border="1" id="table1">
+      <tr>
+        <th>Codice</th>
+        <th>Pezzi</th>
+        <th>Costo</th>
+      </tr>
+    </table><br>
+
+    <label>Prodotti con 3 o meno pezzi</label>
+    <table border="1" id="table2">
+      <tr>
+        <th>Codice</th>
+        <th>Pezzi</th>
+        <th>Costo</th>
+      </tr>
+    </table>
+
+    <script>
+      function init(){
+        if(localStorage.Carrello==undefined){
+          localStorage.Carrello = "[]"
+        }
+      }
+
+      function insert(e){
+        e.preventDefault();
+        var carrello = JSON.parse(localStorage.Carrello);
+
+        var obj = {
+            codice : document.modulo.codice.value,
+            pezzi : document.modulo.pezzi.value,
+            costo : document.modulo.costo.value
+        }
+
+        for(var i=0;i<carrello.length;i++){
+          if(carrello[i].codice==obj.codice){
+            alert("Prodotto già inserito");
+            return false;
+          }
+        }
+        carrello.push(obj);
+        localStorage.Carrello = JSON.stringify(carrello);
+        update();
+      }
+
+      function update(){
+        var table1 = document.getElementById("table1");
+        var table2 = document.getElementById("table2");
+        var carrello = JSON.parse(localStorage.Carrello);
+        var head = "<tr><th>Codice</th><th>Pezzi</th><th>Pezzi</th></tr>";
+        table1.innerHTML = head;
+        table2.innerHTML = head;
+
+
+        for(var i=0;i<carrello.length;i++){
+          var str = "<tr><td><a href='http//:www.abc.com/"+carrello[i].codice+"'>"+carrello[i].codice+"</a></td>"
+          str += "<td>"+carrello[i].pezzi+"</td>"
+          str += "<td>"+carrello[i].costo+"</td>"
+          str += "<td><button onclick='cancella("+i+")'>Cancella</button></td></tr>"
+          if(Number(carrello[i].pezzi)>3){
+            table1.innerHTML+=str;
+          }
+          else{
+            table2.innerHTML+=str;
+          }
+        }
+        localStorage.Carrello = JSON.stringify(carrello);
+      }
+
+      function cancella(idx){
+        carrello = JSON.parse(localStorage.Carrello);
+        carrello.splice(idx,1);
+        localStorage.Carrello = JSON.stringify(carrello);
+        update();
+      }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Esame 15/01/2018</title>
+    <style>*{margin:0.2em}</style>
+</head>
+<body>
+    <!--Si assuma che il Local Storage contenga in un campo UrlDaVisitare un array di URL (stringhe) e in un un campo
+        UrlVisitate un altro array di URL (stringhe).
+        Scrivere un documento HTML che:
+            • visualizza in una tabella le URL contenute nel campo UrlDaVisitare del Local Storage.  
+              La visualizzazione deve essere sempre aggiornata con il contenuto corrente di tale array;
+            • permette all’utente di aggiungere una nuova URL nell’array UrlDaVisitare
+              del Local Storage (tramite un campo input text e un bottone);
+            • ogni  volta  che  l’utente  clicca  su  una  delle  URL  da  Visitare,  
+              viene  aggiornato  il  Local  Storage,  spostando  la  URL dall’array UrlDaVisitare all’array UrlVisitate.-->
+    
+    agguingi URL da visitare <input id="inp" type="text">
+    <button onclick="save()">Save</button><br>
+
+    <table id="table1" border="1">
+        <tr>
+            <th>URL DA VISITARE</th>
+        </tr>
+    </table><br>
+
+    <table id="table2" border="1">
+        <tr>
+            <th>URL VISITATE</th>
+        </tr>
+    </table>
+
+    <script>
+        function init(){
+           if(localStorage.UrlDaVisitare==undefined){
+                localStorage.UrlDaVisitare = "[]"
+           } 
+           if(localStorage.UrlVisitate==undefined){
+                localStorage.UrlVisitate="[]"
+           } 
+        }
+
+        function save(){
+            init();
+            var see = JSON.parse(localStorage.UrlDaVisitare);
+            var url = document.getElementById("inp").value; 
+            for(var i=0;i<see.length;i++){
+                if (see[i]==url){
+                    alert("url già inserita");
+                    return false;
+                }
+            }
+            see.push(url);
+            localStorage.UrlDaVisitare = JSON.stringify(see);
+            updateTable();
+        }
+
+        function move(idx){
+            var see = JSON.parse(localStorage.UrlDaVisitare);
+            var saw = JSON.parse(localStorage.UrlVisitate);
+
+            var el = see[idx];
+            saw.push(el);
+            see.splice(idx,1);
+
+            localStorage.UrlDaVisitare = JSON.stringify(see);
+            localStorage.UrlVisitate = JSON.stringify(saw);
+            updateTable();
+        }
+        
+        function updateTable(){
+            see = JSON.parse(localStorage.UrlDaVisitare);
+            saw = JSON.parse(localStorage.UrlVisitate);
+            
+            var table1 = document.getElementById("table1");
+            var table2 = document.getElementById("table2");
+            
+            table1.innerHTML = "<tr><th>URL DA VISITARE</th></tr>";
+            table2.innerHTML = "<tr><th>URL VISITATE</th></tr>";
+
+            for(var i=0;i<see.length;i++){
+                table1.innerHTML += "<tr><td onclick='move("+i+")'>"+see[i]+"</td></tr>";    
+            }
+
+            for(var i=0;i<saw.length;i++){
+                table2.innerHTML += "<tr><td>"+saw[i]+"</td></tr>";
+            }
+        }
+
+    </script>
+</body>
+</html>

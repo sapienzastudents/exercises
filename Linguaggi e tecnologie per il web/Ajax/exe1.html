@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+     <p>Scrivere  un  documento  HTML  che  permette  di  selezionare,  tramite  clic  su  4
+        bottoni, il caricamento asincrono di 4 diversi documenti HTML in una zona del documento
+        stesso.</p>
+
+        <div>
+            <button id="doc1">Documento 1</button><br>
+            <button id="doc2">Documento 2</button><br>
+            <button id="doc3">Documento 3</button><br>
+            <button id="doc4">Documento 4</button><br>
+        </div>
+
+        <div id="vis">
+
+        </div>
+
+        <script>
+            var xhr = new XMLHttpRequest();
+            var res = document.getElementById("vis");
+            var bttns = document.getElementsByTagName("button");
+
+            for(var i=0; i<bttns.length;i++){
+                bttns[i].onclick = function(){
+                    xhr.open("GET","docpart/"+this.id+".html");
+                    xhr.send();
+
+                    xhr.onload = function(){
+                        res.innerHTML = xhr.responseText;
+                    }
+                };
+            }
+
+            
+        </script>
+ </body>
+ </html>

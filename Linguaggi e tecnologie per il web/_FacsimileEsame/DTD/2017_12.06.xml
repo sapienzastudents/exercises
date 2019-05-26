@@ -1,0 +1,34 @@
+<!--
+1) dire se la DTD `e corretta ed in caso negativo evidenziare gli errori presenti e correggerli; 
+2) scrivere un documento XMLche sia valido rispetto alla DTD (eventualmente corretta).
+-->
+
+<!--
+<!DOCTYPE a [
+<!ELEMENT a (((c,b)|(d,(e,f)*)),(b,b))>
+<!ELEMENT b ((a|(c,(d,e)*,f)))>
+<!ELEMENT c (d,e,a*,f?,b+,c*))>     ERRORE PARENTESI ) IN PIU'
+<!ELEMENT d (#PCDATA|d|e)*>
+<!ELEMENT e EMPTY>
+<!ELEMENT f #PCDATA>                ERRORE MANCANO LE PARENTESI
+<!ATTLIST b attr CDATA #REQUIRED
+            attrb CDATA #REQUIRED>
+<!ATTLIST e attr CDATA #REQUIRED>
+]>
+-->
+
+<?xml version="1.0"?>
+<!DOCTYPE a [
+<!ELEMENT a (((c,b)|(d,(e,f)*)),(b,b))>
+<!ELEMENT b ((a|(c,(d,e)*,f)))>
+<!ELEMENT c (d,e,a*,f?,b+,c*)>     
+<!ELEMENT d (#PCDATA|d|e)*>
+<!ELEMENT e EMPTY>
+<!ELEMENT f (#PCDATA)>                
+<!ATTLIST b attr CDATA #REQUIRED
+            attrb CDATA #REQUIRED>
+<!ATTLIST e attr CDATA #REQUIRED>
+]>
+
+
+<!--CICLO INFINITO...-->

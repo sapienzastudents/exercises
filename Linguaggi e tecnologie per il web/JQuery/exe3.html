@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Utilizzando JQuery, scrivere un documento HTML che permette di selezionare,
+        tramite clic su 4 bottoni, il caricamento asincrono di 4 diversi documenti HTML in una zona
+        del documento stesso.</p>
+
+        <button id="part1">Documento 1</button><br>
+        <button id="part2">Documento 2</button><br>
+        <button id="part3">Documento 3</button><br>
+        <button id="part4">Documento 4</button><br>
+
+        <div id="load">
+
+        </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("button").on("click",function(){
+            var fn = this.id;
+            $("#load").load("docpart/"+fn+".html");
+        })
+    </script>
+</body>
+</html>

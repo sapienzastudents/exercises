@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 08/02/2018</title>
+</head>
+<body>
+    <!--(a) Scrivere un documento HTML contenente una form contenente i seguenti campi:
+            • codice fiscale (casella di testo editabile lunga 16 caratteri)
+            • cognome e nome (casella di testo editabile lunga 60 caratteri)
+            • data di nascita (casella di tipo date)
+            • sesso (selezionabile tramite due bottoni radio)
+            • regione di residenza (menu a tendina contenente le regioni Lazio, Umbria e Toscana)
+            • provincia di residenza (menu a tendina contenente le province delle regioni Lazio, Umbria e Toscana)
+            • indirizzo (area di testo editabile di 6 righe per 80 colonne)
+            • email (casella di testo editabile lunga 30 caratteri)
+            • telefono (casella di testo editabile lunga 15 caratteri)
+            • prodotto richiesto (menu a tendina contenente i valori 1, 2, 3, 4, 5, 6)
+            • spedizione espresso (casella di checkbox)
+            • bottone di invio
+            • bottone di reset e in cui vengano effettuati, tramite funzioni JavaScript, i seguenti controlli:
+                
+                (a1)  verifica che il campo telefono contenga un numero di almeno 8 cifre e al pi`u 15 cifre.  Questa verifica va fatta ogni volta
+                      che l’utente cambia il valore di questo campo;
+                
+                (a2)  verifica che sia stata selezionata una regione.  Questa verifica va fatta all’atto dell’invio della form;
+                
+                (a3)  verifica che sia stata selezionata una provincia appartenente alla regione selezionata.  Questa verifica va fatta tutte le
+                      volte che cambia il valore del campo regione di residenza oppure il valore del campo provincia di residenza (se non 
+                      è  ancora  stata  selezionata  alcuna  regione  o  non `e  ancora  stata  selezionata  alcuna  provincia,  allora  il  controllo  deve
+                      sempre dare esito positivo);
+                
+                (a4)  verifica  che,  se  la  provincia  di  residenza  non `e  Roma,  Firenze  o  Perugia,  non  sia  selezionata  la  casella  “spedizione
+                      espresso”, mentre se la provincia di residenza `e Roma, Firenze o Perugia, o l’email o il telefono devono essere non vuoti.
+                      Questa verifica va fatta tutte le volte che cambia il valore del campo provincia di residenza.
+                 
+                 (b) Per ognuno dei controlli specificati al punto (a), dire se `e realizzabile in HTML5 senza utilizzare codice JavaScript, e in
+                     caso positivo, spiegare come.-->
+    
+    <form action="" name="modulo" id="modulo">
+        Codice Fiscale<input type="text" maxlength="16" size="16" name="codfisc"><br>
+        Cognome e Nome <input type="text" maxlength="60" size="60" name="cognome"><br>
+        Data Nascita <input type="data" name="data"><br>
+        <div>Sesso</div>
+        M <input type="radio" name="sex" value="M"><br>
+        F <input type="radio" name="sex" value="F"><br>
+        Regione Residenza <select name="reg" id="reg">
+            <option value="nessuna" selected></option>
+            <option value="Lazio">Lazio</option>
+            <option value="Umbria">Umbria</option>
+            <option value="Toscana">Toscana</option>
+        </select><br>
+        Provincia Residenza <select name="prov" id="prov">
+                <option value="nessuna" selected></option>
+                <option value="Roma">Roma</option>
+                <option value="Firenze">Firenze</option>
+                <option value="Perugia">Perugia</option>
+            </select><br>
+        Indirizzo <textarea name="indirizzo" id="" cols="80" rows="6"></textarea><br>
+        Email<input type="text" name="email" maxlength="30" size="30"><br>
+        Telefono <input type="text" name="telefono" maxlength="15" size="15" id="telefono"><br>
+        Prodotto Richiesto<select name="prodotto" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select><br>
+        Spedizione Espresso <input type="checkbox" name="espresso" ><br>
+        <input type="submit"> <input type="reset">
+    </form>
+
+    <script>
+        document.getElementById("telefono").addEventListener("input",function(){
+            var tel = this.value;
+            if (tel.length<8 || tel.length>15){
+                alert("La lunghezza del numero di telefono deve essere tra le 8 e 15 cifre!");
+                return false;
+            }
+            return true;
+        });
+
+        document.getElementById("modulo").addEventListener("submit",function(){
+            var reg = document.modulo.reg.value;
+            if(reg=="nessuna"){
+                alert("BIsogna selezionare una regione");
+                return false;
+            }
+            return true;
+        });
+
+        var prov = document.getElementById("prov");
+
+        prov.addEventListener("change",function(){
+            var reg = document.modulo.reg.value;
+            var prov= document.modulo.prov.value;
+            if(reg=="Lazio" && prov=="Roma" || reg=="Toscana" && prov=="Firenze" || reg=="Umbria" && prov=="Perugia" || (reg=="nessuna" ||prov=="nessuna")){
+                return true;
+            }
+            alert("Provincia e regione non corrispondono");
+            return false;
+        });
+
+        prov.addEventListener("change",function(){
+            var prov= document.modulo.prov.value;
+            if(prov=="Roma" || prov=="Firenze" || prov=="Perugia"){
+               if(document.modulo.telefono.value=="" && document.modulo.email.value=="")
+                return false;
+               return true;
+            }
+            else{
+                if(document.modulo.espresso.checked)
+                    return false;
+                return true;
+            }
+        })
+    </script>
+</body>
+</html>

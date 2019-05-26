@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE a [
+    <!ELEMENT a (b, c, (d | a))*>
+    <!ELEMENT b (#PCDATA | b)*>
+    <!ELEMENT c (a | b*)>
+    <!ELEMENT d (#PCDATA | a)*>
+    <!ATTLIST a val CDATA #REQUIRED>
+    <!ATTLIST b val CDATA #IMPLIED>
+    <!ATTLIST c link CDATA #REQUIRED>
+]>
+
+<a val="richiesto">
+    <b>
+        Mixed mode <b>Solo testo</b>
+    </b>
+    <c link="www.abc.com" />
+    <d>
+        Semplice testo
+    </d>
+</a>

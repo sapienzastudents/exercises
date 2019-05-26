@@ -1,0 +1,52 @@
+<web-app>
+<!--Global configuration-->
+<context-param>
+    <param-name>Global 1</param-name>
+    <param-value>This is 1st global value</param-value>
+</context-param>
+
+<context-param>
+    <param-name>Global 2</param-name>
+    <param-value>This is 2nd global value</param-value>
+</context-param>
+
+<!--Servlet declaration-->
+<servlet>
+    <servlet-name>Redirection</servlet-name>
+    <servlet-class>Redir</servlet-class>
+</servlet>
+
+<servlet>
+    <servlet-name>Configuration1</servlet-name>
+    <servlet-class>ConfOne</servlet-class>
+    <init-param>
+        <param-name>Local one</param-name>
+        <param-value>Local value! ConfOne</param-value>
+    </init-param>
+</servlet>
+
+<servlet>
+    <servlet-name>Configuration2</servlet-name>
+    <servlet-class>ConfTwo</servlet-class>
+    <init-param>
+        <param-name>Local two</param-name>
+        <param-value>Local value! ConfTwo</param-value>
+    </init-param>
+</servlet>
+
+<!--Servlet mapping-->
+<servlet-mapping>
+    <servlet-name>Redirection</servlet-name>
+    <url-pattern>/html/redtest.html</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>Configuration1</servlet-name>
+    <url-pattern>/html/config1.html</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>Configuration2</servlet-name>
+    <url-pattern>/html/config2.html</url-pattern>
+</servlet-mapping>
+</web-app>

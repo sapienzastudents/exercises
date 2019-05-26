@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Index page</title>
+</head>
+<body>
+    <h2>Welcome to the index page</h2>
+    <p>
+        The request will be submit by POST
+        <form action="servlet/summary" method="POST">
+            <p>Please fill the information with your data..</p>
+            <input type="text" name="name" value="name"/>
+            <input type="text" name="surname" value="surname"/><br/>
+            <select name="sex" id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br/>
+            <p>What languages you know?</p>
+            <input type="checkbox" name="cb1" value="Python"/>Python<br/>
+            <input type="checkbox" name="cb2" value="Java"/>Java<br/>
+            <input type="checkbox" name="cb3" value="Assembly"/>Assembly<br/>
+            <input type="checkbox" name="cb4" value="PHP"/>PHP<br/>
+            <input type="submit" value="Send data">
+        </form>
+    </p>
+</body>
+</html>

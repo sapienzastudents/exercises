@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 08/02/2018</title>
+    <style>*{margin:0.2em;}
+    </style>
+</head>
+<body onload="init()">
+    <form action="" method="post" name="modulo">
+        <input type="text" name="nome">Nome<br>
+        <input type="date" name="data">Età<br>
+        <input type="email" name="email">Email<br>
+        <input type="url" name="url">URL<br>
+        <input type="submit" value="Salva valore" onclick="inserisci(event)">
+    </form>
+
+    <table id="table1" border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Età</th>
+            <th>Email</th>
+            <th>URL</th>
+        </tr>
+    </table>
+
+    <script>
+        function init(){
+            if(localStorage.Clienti==undefined){
+                localStorage.Clienti = "[]";
+            }
+        }
+
+        function inserisci(e){
+            e.preventDefault();
+            
+            var lst = JSON.parse(localStorage.Clienti);
+            var obj = {
+                nome : document.modulo.nome.value,
+                data : document.modulo.data.value,
+                email : document.modulo.email.value,
+                url : document.modulo.url.value
+            }
+
+            var current = new Date();
+            var supp = new Date(obj.data);
+            var ver = current.getFullYear() - supp.getFullYear();
+            if(ver<18 || ver >100){
+                alert("L'età deve essere compresa tra 18 e 100 anni");
+                return false;
+            }
+
+            for(var i=0;i<lst.length;i++){
+                if(lst[i].email==obj.email){
+                    alert("Esiste già un utente con questa email");
+                    return false;
+                }
+            }
+
+            lst.push(obj);
+            localStorage.Clienti = JSON.stringify(lst);
+            update();
+        }
+
+        function cancella(idx){
+            var lst = JSON.parse(localStorage.Clienti);
+            lst.splice(idx,1);
+            localStorage.Clienti = JSON.stringify(lst);
+            update();  
+        }
+
+        function update(){
+            var lst = JSON.parse(localStorage.Clienti);
+            var head = "<tr><th>Nome</th> <th>Data</th> <th>Email</th> <th>URL</th></tr>"
+            var table = document.getElementById("table1");
+            table.innerHTML = head;
+
+            for(var i=0;i<lst.length;i++){
+                table.innerHTML += "<tr><td>"+lst[i].nome+"</td><td>"+lst[i].data+"</td><td>"+lst[i].email+"</td><td onclick='cancella("+i+")'>"+lst[i].url+"</td></tr>";
+            }
+        }
+    </script>
+</body>
+</html>

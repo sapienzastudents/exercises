@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+        * {
+            padding: 0.2em;
+            margin: 0.2em;
+        }
+        </style>
+    </head>
+    <body onload="initialize()">
+        <form action="" id="module" name="modulo">
+            Cognome <input type="text" name="cognome" maxlength="40" size="40"><br>
+            Nome <input type="text" name="nome" maxlength="30" size="30"><br>
+            Matricola <input type="text" name="matricola" maxlength="12" size="12"><br>
+            <input type="submit" value="Submit"> <input type="reset" value="Reset"><br>
+            <button id="print">Print storage</button> <button id="erase">Reset Storage</button>
+            <div id="view"></div>
+        </form>
+       
+
+        <script>
+            function initialize(){
+                if(localStorage.users==undefined){
+                    localStorage.users = "[]";
+                }
+            }
+
+
+            document.getElementById("module").addEventListener("submit",function(){
+                initialize();
+                var lst_user = JSON.parse(localStorage.users);
+
+                var user = { "Cognome" : document.modulo.cognome.value,
+                             "Nome" : document.modulo.nome.value,
+                             "Matricola": document.modulo.matricola.value
+                            };
+
+                for(var i=0;i<lst_user.length;i++){ 
+                    if(user["Matricola"] == lst_user[i]["Matricola"] && user["Cognome"]==lst_user[i]["Cognome"] && user["Nome"]==lst_user[i]["Nome"]){
+                        alert("Utente già inserito");
+                        return false;
+                    }
+                }
+
+                lst_user.push(user);
+                localStorage.users = JSON.stringify(lst_user);
+
+                alert("inserimento riuscito");
+            });
+            
+
+            document.getElementById("print").addEventListener("click",function(e){
+                initialize();
+                e.preventDefault();
+                var see = document.getElementById("view");
+                var lst_user = JSON.parse(localStorage.users);
+
+                for(var i=0;i<lst_user.length;i++){
+                    see.innerHTML += lst_user[i].Cognome + "\n" +
+                                      lst_user[i].Nome + "\n" +
+                                      lst_user[i].Matricola + "\n" +
+                                      "<p>/-------------------------------------/</p>";        
+                }
+            });
+
+
+            document.getElementById("erase").addEventListener("click",function(e){
+                e.preventDefault();
+                localStorage.clear();
+                
+            });
+
+        </script>
+    </body>
+</html>

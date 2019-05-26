@@ -1,0 +1,43 @@
+<!--
+Scrivere un documento HTML contenente una form contenente i seguenti campi:
+• cognome e nome (campo testuale, 50 caratteri)
+• data di nascita (campo di tipo data)
+• CAP (campo numerico, 5 caratteri)
+• studente lavoratore (selezionabile tramite checkbox)
+• foto (campo di tipo file)
+• descrizione del lavoro svolto (campo testuale, 80 caratteri)
+• bottone di invio
+• bottone di reset
+
+in modo tale che, al momento dell’invio della form, il browser effettui i seguenti controlli senza
+usare codice JavaScript:
+(a)  il campo CAP deve essere un numero di 5 cifre;
+(b)  il campo nome non deve essere un numero;
+(c)  il campo nome non deve essere vuoto;
+(d)  se l’utente ha dichiarato di essere uno studente lavoratore, la descrizione del lavoro svolto
+non può essere vuota.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Esercizio 2</title>
+    <style>
+        * {
+            margin : 0.2em;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" size="50" maxlength="50" required>Cognome e Nome<br/>
+    <input type="date">Data<br/>
+    <input id="cap" type="number" size="5" maxlength="5" max="99999">CAP<br/>
+    <input type="checkbox"> Studente lavoratore <br/>
+    <input type="file"> Foto <br/>
+    <input type="text" name="" size="80" maxlength="80"> Descrizione lavoro svolto <br>
+    <input type="submit" value="Invia"> <input type="reset" value="Reset">
+</body>
+</html>

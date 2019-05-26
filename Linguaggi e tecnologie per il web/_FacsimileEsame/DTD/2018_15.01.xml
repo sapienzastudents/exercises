@@ -1,0 +1,43 @@
+<!--
+<!DOCTYPE z [
+    <!ELEMENT z (a|(c,d)|e)*>
+    <!ELEMENT a ((b,c,d)|(d,e,a*)|f+)>
+    <!ELEMENT b ANY>
+    <!ELEMENT c ((c*,((e,f)|g)*),b)>     L'ELEMENTO "g" NON ESISTE
+    <!ELEMENT d (#PCDATA|d|z)*>
+    <!ELEMENT e EMPTY>
+    <!ELEMENT f (#PCDATA|a|(c,d)|e)*>    MIXED MODE ERRATA 
+    <!ATTLIST a attr CDATA #REQUIRED
+                attra CDATA #IMPLIED>
+    <!ATTLIST b attr CDATA #REQUIRED>
+]>
+-->
+
+<?xml version="1.0" ?>
+<!DOCTYPE z [
+    <!ELEMENT z (a|(c,d)|e)*>
+    <!ELEMENT a ((b,c,d)|(d,e,a*)|f+)>
+    <!ELEMENT b ANY>
+    <!ELEMENT c ((c*,(e,f)*),b)>
+    <!ELEMENT d (#PCDATA|d|z)*>
+    <!ELEMENT e EMPTY>
+    <!ELEMENT f (#PCDATA|a|c|d|e)*>   
+    <!ATTLIST a attr CDATA #REQUIRED
+                attra CDATA #IMPLIED>
+    <!ATTLIST b attr CDATA #REQUIRED>
+]>
+
+<z>
+    <a attr="value">
+        <b attr="value">
+            <e/>
+            <f>Testo libero</f>
+        </b>
+        <c>
+            <b attr="value">
+                Any
+            </b>
+        </c>
+        <d>Testo Libero</d>
+    </a>
+</z>

@@ -1,0 +1,2 @@
+Gli esercizi qui presenti sono in linguaggio Assembly MIPS
+per maggiori informazioni consultare https://it.wikiversity.org/wiki/ISA_e_Linguaggio_Assemby_MIPS

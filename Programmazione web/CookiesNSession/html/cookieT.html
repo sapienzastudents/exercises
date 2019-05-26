@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tester</title>
+</head>
+<body>
+    <h4>You can compile the form or...</h4>
+    <form action="../servlet/cookies" method="POST">
+        <input type="text" name="Name"/>Name<br/>
+        <input type="text" name="Name"/>Surname<br/>
+        <select name="language">
+            <option value="Python">Python</option>
+            <option value="C">C</option>
+            <option value="Java">Java</option>
+            <option value="Typescript">Typescript</option>
+        </select>Select you prefer language<br/>
+        <input type="submit" value="Send data"/>
+    </form>
+
+    <h4>Just see you cookies <a href="../servlet/cookies">Click here</a></h4>
+    <h4>Delete all cookies <a href="../servlet/cookies?delete">Click Here</a></h4>
+
+</body>
+</html>

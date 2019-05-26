@@ -1,0 +1,88 @@
+<!-- DTD DATA IN ESAME
+
+<!DOCTYPE r [
+    <!ELEMENT r (((b,a)|(f,e)),((d,c)|(h,g)))+>
+    <!ELEMENT a (h,g,g*,(e+|f+))>
+    <!ELEMENT b (#PCDATA|b|c|d|r)*>
+    <!ELEMENT c EMPTY>
+    <!ELEMENT d ((d,g)|(f,e,c)|h)>
+    <!ELEMENT e (e|b|(g,e))*>
+    <!ELEMENT f ((f,g)|(a,b)|(h,e,c))>
+    <!ELEMENT g (#PCDATA|a|b)+>             MIXED MODE NON CORRETTA
+    <!ELEMENT h EMPTY>
+    <!ATTLIST b attr CDATA #REQUIRED
+                attrb CDATA #REQUIRED>
+    <!ATTLIST h attr CDATA #REQUIRED
+                attrb CDATA #REQUIRED>
+]>
+
+-->
+<!--DTD CORRETTA E RELATIVA ESTANZA DELL'XML-->
+
+<?xml version="1.0"?>
+<!DOCTYPE r [
+    <!ELEMENT r (((b,a)|(f,e)),((d,c)|(h,g)))+>
+    <!ELEMENT a (h,g,g*,(e+|f+))>
+    <!ELEMENT b (#PCDATA|b|c|d|r)*>
+    <!ELEMENT c EMPTY>
+    <!ELEMENT d ((d,g)|(f,e,c)|h)>
+    <!ELEMENT e (e|b|(g,e))*>
+    <!ELEMENT f ((f,g)|(a,b)|(h,e,c))>
+    <!ELEMENT g (#PCDATA|a|b)*>            
+    <!ELEMENT h EMPTY>
+    <!ATTLIST b attr CDATA #REQUIRED
+                attrb CDATA #REQUIRED>
+    <!ATTLIST h attr CDATA #REQUIRED
+                attrb CDATA #REQUIRED>
+]>
+
+<r>
+    <b attr="first" attrb="second">
+        <c/>
+        <d>
+            <f> 
+                <a>
+                    <h attr="first" attrb="second"/>
+                    <g>Ciaoooo</g>
+                    <e>
+                        <b attr="first" attrb="second">Testoooo</b>
+                    </e>
+                </a>
+                <b attr="first" attrb="second">Testo semplice</b>
+            </f>
+            <e></e>
+            <c/>
+        </d>
+    </b> 
+    <a>
+        <h attr="first" attrb="second"/>
+            <g>Ciaoooo</g>
+            <e>
+            <b attr="first" attrb="second">Testoooo</b>
+            </e>    
+    </a>   
+    <h attr="first" attrb="second"/>
+    <g>
+    Ciaooooo
+    </g>
+</r>
+
+
+<!--OPPURE-->
+
+<r>
+    <b attr="first" attrb="second">Mixed mode</b>
+    <a>
+        <h attr="first" attrb="second"/>
+        <g>Mixed Mode</g>
+        <f>
+            <h attr="first" attrb="second"/>
+            <e></e>
+            <c/>
+        </f>
+    </a>
+    <d>
+        <h attr="first" attrb="second"/>
+    </d>
+    <c/>
+</r>

@@ -1,0 +1,124 @@
+<!--
+(a)  Scrivere  un  documento  HTML  contenente  una  form  contenente  i  seguenti
+campi:
+• cognome e nome (casella di testo editabile lunga 50 caratteri)
+• sesso (selezionabile tramite due bottoni radio)
+• ateneo (da scegliere da un menu che riporta le 3 universit romane)
+• CAP (casella di testo editabile lunga 5 caratteri)
+• studente lavoratore (selezionabile tramite checkbox)
+• descrizione del lavoro svolto (casella di testo editabile lunga 80 caratteri)
+• bottone di invio
+• bottone di reset
+
+(b) Aggiungere al documento HTML una funzione JavaScript che esegue i seguenti controlli:
+• mentre l’utente edita i campi della form:
+– subito dopo che l’utente ha editato il campo CAP, deve verificare che tale campo
+  sia un numero di 5 cifre;
+
+– subito dopo che l’utente ha editato il campo nome e cognome, deve verificare che
+  tale campo non sia un numero;
+
+• al momento dell’invio del messaggio:
+– verifica che il cognome e nome non sia vuoto;
+
+– verifica che il sesso sia stato selezionato;
+
+– verifica che sia stato selezionato un ateneo;
+
+– se l’utente ha dichiarato di essere uno studente lavoratore, la descrizione del lavoro
+  svolto non può essere vuota.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <form action="" method="POST" name="module" onsubmit="return verify()">
+        <div>Name</div>
+        <input id="name" type="text" name="name" size="50" onkeydown="isNum()"><span id="stat1"></span>
+    
+        <div>Sex</div> 
+        <input type="radio" name="sex" value="M" onclick="sexVal=this.value"> M
+        <input type="radio" name="sex" value="F" onclick="sexVal=this.value"> F
+        <span id="sc"></span>
+
+        <div>Ateneo</div>
+        <select name="ateneo">
+            <option value="noselect"></option>
+            <option value="sapienza">La Sapienza</option>
+            <option value="torvergata">Tor Vergata</option>
+            <option value="roma3">Roma 3</option>
+        </select>
+
+        <div>CAP</div>
+        <input type="text" name="cap" id="cap" size="5" onkeydown="vercap()"> <span></span> <br>
+
+        <input type="checkbox" name="sl" id=""> Studente lavoratore
+
+        <div>Descrizione del lavoro</div>
+        <input type="text" name="work" id="" size="80">
+
+        <input type="submit" id="send" value="Send"> <input type="reset" value="Clear">
+    </form>
+    
+    <script>
+        function isNum(){
+            if(!isNaN(module.name.value) && module.name.value!=""){
+                module.name.nextSibling.textContent = "can't be Number";
+            }
+            else {
+                module.name.nextSibling.textContent = "";
+            }
+        }
+
+        function vercap(){
+            if(module.cap.value.length > 5 || isNaN(module.cap.value)){
+                module.cap.nextSibling.textContent = "The field can't be higher than 5 and must be a number";
+            }
+            else{
+                module.cap.nextSibling.textContent = "";
+            }
+        }
+
+        function isEmpty() {
+            if(this.value.length < 1){
+                this.nextSibling.textContent = "The field cannot be empty!";
+            }
+        }
+
+        function gender(){
+            this.forEach(el => {
+                console.log(el);
+            });
+        }
+
+        var sexVal = null;
+        function verify(){
+            if (document.module.name.value.length == 0) {
+                document.module.name.nextSibling.textContent = "The field cannot be empty";
+                return false;
+            }
+            if (sexVal==null)
+            {
+                alert("The sex cannot be empty");
+                return false;
+            }
+            if (document.module.ateneo.value == "noselect"){
+                alert("You must select University");
+                return false;
+            }
+
+            if(document.module.sl.checked && document.module.work.value==""){
+                alert("The work description can't be empty");
+                return false;
+            }
+            alert("Dati inseriti correttamente");
+            return true;
+        }
+    </script>
+</body>
+</html>

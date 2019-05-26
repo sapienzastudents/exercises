@@ -1,0 +1,28 @@
+<!--
+<!DOCTYPE r [
+<!ELEMENT r ((b,d)|(c,(d,e)*,f),f)>     SINTASSI ERRATA
+<!ELEMENT b ANY>
+<!ELEMENT c (((b,c)|(d,(e,f)*)),(g,g))>
+<!ELEMENT d (d?,(a|e*),f+,(b,c)*,g))>
+<!ELEMENT e (#PCDATA,d,e)*>             MIXED MODE ERRATA
+<!ELEMENT f EMPTY>
+<!ELEMENT g #PCDATA>                    PARENTESI MANCANTE
+<!ATTLIST c attr CDATA #REQUIRED
+            attrc CDATA #REQUIRED>
+<!ATTLIST f attrf CDATA #REQUIRED>]>
+-->
+
+<?xml version="1.0"?>
+<!DOCTYPE r [
+<!ELEMENT r ((b,d)|(c,(d,e)*,f)|f)>
+<!ELEMENT b ANY>
+<!ELEMENT c (((b,c)|(d,(e,f)*)),(g,g))>
+<!ELEMENT d (d?,(a|e*),f+,(b,c)*,g)>
+<!ELEMENT e (#PCDATA|d|e)*>
+<!ELEMENT f EMPTY>
+<!ELEMENT g (#PCDATA)>
+<!ATTLIST c attr CDATA #REQUIRED 
+            attrc CDATA #REQUIRED>
+<!ATTLIST f attrf CDATA #REQUIRED>
+]>
+

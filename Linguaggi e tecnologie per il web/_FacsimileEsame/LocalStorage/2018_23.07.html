@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 23/07/2018</title>
+    <style>*{ margin: 0.2em;}</style>
+</head>
+<body onload="init()">
+    <!--Si assuma che il Local Storage contenga in un campo Carrello un array di oggetti con 3 campi di tipo stringa,
+        codiceProdotto, numeroPezzi, prezzoUnitario
+        Scrivere un documento HTML che:
+        • visualizza in due tabelle le informazioni contenute nell’array Carrello del Local Storage. La  prima tabella deve
+          presentare le informazioni sui prodotti che hanno un prezzo unitario maggiore di 20 Euro, mentre la seconda tabella
+          deve presentare le informazioni sui restanti prodotti. Nelle due tabelle, il codice di ogni prodotto deve essere un link
+          ipertestuale alla pagina di quel prodotto, che si trova alla URL
+          http://www.abc.com/<codice prodotto>
+          .Inoltre, in entrambe le tabelle ogni riga deve contenere un bottone Cancella che permette di cancellare quel prodotto dal carrello.
+           La visualizzazione della tabella deve essere sempre aggiornata con il contenuto corrente dell’array Carrello;
+        
+        • permette all’utente di aggiungere un nuovo prodotto nell’array Carrello del Local Storage, tramite una form con degli 
+          opportuni campi editabili e un bottone;
+
+        • deve infine essere presente un bottone Calcola totale il cui click fa comparire il costo totale dei prodotti presenti nel
+          carrello, e un bottone Costo medio unitario il cui click fa comparire il costo medio unitario dei prodotti presenti nel
+          carrello.-->
+        
+    <form action="" name="modulo">
+        <input name="codice" type="text"> Codice prodotto <br>
+        <input name="costo" type="number"> Costo prodotto <br>
+        <input name="pezzi" type="number"> Pezzi <br>
+        <button onclick="insert(event)">Aggiungi al carrello</button>
+    </form>
+    <button onclick="costoTot()">Costo totale</button> <span id="tot"></span><br>
+     <button onclick="costoMedio()">Costo medio unitario</button> <span id="medio"></span> <br> 
+    <button onclick="reset()">Reset Storage</button>
+
+    <table border="1" id="table1">
+        <tr>
+            <th>Codice</th>
+            <th>Prezzo</th>
+            <th>Pezzi</th>
+        </tr>
+    </table><br>
+
+    <table border="1" id="table2">
+        <tr>
+            <th>Codice</th>
+            <th>Prezzo</th>
+            <th>Pezzi</th>
+        </tr>
+    </table><br>
+
+    <script>
+        function init(){
+            if(localStorage.Carrello==undefined){
+                localStorage.Carrello= "[]";
+            }
+        }
+
+        function insert(e){
+            e.preventDefault();
+            var carrello = JSON.parse(localStorage.Carrello);
+            var obj = {
+                codice : document.modulo.codice.value,
+                costo : document.modulo.costo.value,
+                pezzi : document.modulo.pezzi.value
+            };
+
+            for(var i=0;i<carrello.length;i++){
+                if(carrello[i].codice==obj.codice){
+                    alert("Prodotto già inserito");
+                    return false;
+                }
+            }
+            carrello.push(obj);
+            localStorage.Carrello = JSON.stringify(carrello);
+            update();
+        }
+
+        function cancella(idx){
+            var carrello= JSON.parse(localStorage.Carrello);
+            carrello.splice(idx,1);
+            localStorage.Carrello = JSON.stringify(carrello);
+            update(); 
+        }
+
+        function update(){
+            var carrello = JSON.parse(localStorage.Carrello);
+            var tabh = "<th><td>Codice</td> <td>Prezzo</td> <td>Pezzi</td></th>";
+            var table1 = document.getElementById("table1");
+            var table2 = document.getElementById("table2");
+
+            table1.innerHTML= tabh;
+            table2.innerHTML= tabh;
+
+            for(var i=0;i<carrello.length;i++){
+                var str = "<tr><td><a href='http://www.abc.com/"+carrello[i].codice+"'>"+carrello[i].codice+"</a></td>";
+                str += "<td>"+carrello[i].costo+"</td> <td>"+carrello[i].pezzi+"</td>";
+                str += "<td><button onclick='cancella("+i+")'>Cancella</button></td></tr>";
+
+                if(carrello[i].costo>20){
+                    table1.innerHTML+=str;    
+                }
+                else{
+                    table2.innerHTML+=str;
+                }
+            }
+            
+        }
+
+        function reset(){
+            localStorage.Carrello = "[]";
+        }
+
+        function costoTot(){
+           var carrello = JSON.parse(localStorage.Carrello);
+           var tot=0;
+           for(var i=0;i<carrello.length;i++){
+                tot+= Number(carrello[i].costo)
+           }
+           document.getElementById("tot").textContent = tot;
+        }
+
+        function costoMedio(){
+           var carrello = JSON.parse(localStorage.Carrello);
+           var tot=0;
+           for(var i=0;i<carrello.length;i++){
+                tot+= Number(carrello[i].costo)/Number(carrello[i].pezzi)
+           }
+           document.getElementById("medio").textContent = tot;
+        }
+    </script>
+</body>
+</html>

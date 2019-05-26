@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    img {
+        height: 4em;
+        width : 4em
+        }
+    </style>
+    <title>Exam 23/07/2018</title>
+</head>
+<body>
+    <!--modificare (il  meno  possibile) il documento HTML in modo che, ogni volta che viene cliccata una immagine  
+        nelle prime 4 righe della tabella, venga effettuato il caricamento asincrono di tale immagine 
+        e la sua visualizzazione nella casella della stessa colonna alla quinta riga della tabella.-->
+
+    <table border="1">
+        <tr>
+            <td name="1"><img src="img/one.png"></td>
+            <td name="2"><img src="img/two.png"></td>
+            <td name="3"><img src="img/three.png"></td>
+            <td name="4"><img src="img/four.png"></td>
+        </tr>
+        <tr>
+            <td name="1"><img src="img/one.png"></td>
+            <td name="2"><img src="img/two.png"></td>
+            <td name="3"><img src="img/three.png"></td>
+            <td name="4"><img src="img/four.png"></td>
+        </tr>
+        <tr>
+            <td name="1"><img src="img/one.png"></td>
+            <td name="2"><img src="img/two.png"></td>
+            <td name="3"><img src="img/three.png"></td>
+            <td name="4"><img src="img/four.png"></td>
+        </tr>
+        <tr>
+            <td name="1"><img src="img/one.png"></td>
+            <td name="2"><img src="img/two.png"></td>
+            <td name="3"><img src="img/three.png"></td>
+            <td name="4"><img src="img/four.png"></td>
+        </tr>
+        <tr>
+            <td id="1"><img src=""></td>
+            <td id="2"><img src=""></td>
+            <td id="3"><img src=""></td>
+            <td id="4"><img src=""></td>
+        </tr>
+    <table>
+
+    <script>
+        var el = document.getElementsByTagName("td");
+        for(var i=0;i<el.length;i++){
+            if(el[i].getAttribute("name")!= undefined){
+                el[i].onclick = function(e){
+                var xhr = new XMLHttpRequest();
+                xhr.child = this.firstChild.getAttribute("src");
+                xhr.num = this.getAttribute("name");
+                xhr.open("GET", xhr.child);
+                xhr.send();
+
+                xhr.onload = function(e){
+                    if(e.target.status==200){
+                        document.getElementById(xhr.num).firstChild.setAttribute("src",xhr.responseURL);
+                    }
+                }
+                }
+            }            
+        } 
+    </script>
+</body>
+</html>

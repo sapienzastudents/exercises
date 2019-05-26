@@ -1,0 +1,180 @@
+<!-- Si assuma che il Local Storage contenga in un campo Carrello un array di oggetti con 3 campi di
+tipo stringa, codiceProdotto, numeroPezzi, prezzoUnitario. Scrivere un documento HTML che:
+
+• visualizza in due tabelle le informazioni contenute nell’array Carrello del Local Storage.
+ La prima tabella deve presentare le informazioni sui prodotti che hanno un prezzo unitario maggiore di 20 Euro, mentre la seconda tabella
+deve presentare le informazioni sui restanti prodotti.
+
+Nelle due tabelle, il codice di ogni prodotto deve essere un link
+ipertestuale alla pagina di quel prodotto, che si trova alla URL http://www.abc.com/<codice prodotto>.
+
+Inoltre, in entrambe le tabelle ogni riga deve contenere un bottone Cancella che permette di cancellare quel prodotto dal carrello.
+La visualizzazione della tabella deve essere sempre aggiornata con il contenuto corrente dell’array Carrello;
+• permette all’utente di aggiungere un nuovo prodotto nell’array Carrello del Local Storage, tramite una form con degli
+opportuni campi editabili e un bottone;
+• deve infine essere presente un bottone Calcola totale il cui click fa comparire il costo totale dei prodotti presenti nel
+carrello, e un bottone Costo medio unitario il cui click fa comparire il costo medio unitario dei prodotti presenti nel
+carrello.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Carrello_LocalStorage</title>
+    <script>
+        var ca = JSON.parse(localStorage.carrello);
+
+        function inizializzaStorageCarrello() {
+            if (typeof (localStorage.carrello) == "undefined")
+                localStorage.carrello = "[]";
+        }
+
+        function resetStorage() {
+            localStorage.carrello = "[]";
+
+        }
+
+        function stampaStorageTabella() {
+            var s = new String("<h3>Stato di localStorage < 20:</h3>");
+            s += "<table border=1 bgcolor=\"#00008b\" bordercolor='#ffffd'><th>codiceProdotto</th><th>numeroPezzi</th><th>prezzoUnitario</th> ";
+            for (var i = 0; i < ca.length; i++) {
+                if (ca[i].p < 20)
+                    s += "<tr><td>" + urlProdotto(ca[i].c) + "</td>" +
+                        "<td>" + ca[i].n + "</td><td>" + ca[i].p + "</td>" + "<th>" +
+                        "<input type=\"button\" value='cancella prodotto' " +
+                        "onclick='cancellaProdotto(" + i + ")'\>" +
+                        "</th>" + "</tr>";
+            }
+            s += "</table>";
+            var s1=stampaTabella2();
+            document.getElementById("vistaStorage").innerHTML = s + s1;
+            return true;
+        }
+        function stampaTabella2() {
+            var s1 = "<h3>Stato di localStorage >=20:</h3>";
+            s1 += "<table border=1 bgcolor=\"#00008b\"><tr><th>codiceProdotto</th><th>numeroPezzi</th><th>prezzoUnitario</th></tr>";
+            for (var j = 0; j < ca.length; j++) {
+                if (ca[j].p >= 20)
+                    s1 += "<tr><td>" + urlProdotto(ca[j].c) + "</td>" +
+                        "<td>" + ca[j].n + "</td><td>" + ca[j].p + "</td><th>" +
+                        "<input type=\"button\" value='cancella prodotto' onclick='cancellaProdotto(" + j + ")'\></th></tr>";
+            }
+            s1 += "</table>";
+            return s1;
+        }
+
+        function urlProdotto(c) {
+            if(c=="astuccio") return "<a href='http://www.abc.com/astuccio' target='_blank'<c>"+c+"</c> </a>";
+            if(c=="portachiavi") return "<a href='http://www.abc.com/portachiavi' target='_blank'<c>"+c+"</c> </a>";
+            return "<a href='http://www.abc.com/' target='_blank'<c>"+c+"</c> </a>";
+        }
+
+        function uguali(u, o) {
+            return ((u.c == o.c) && (u.n == o.n) && (u.p == o.p));
+        }
+
+        function cancellaProdotto(i) {
+            ca.splice(i, 1);
+            localStorage.carrello = JSON.stringify(ca);
+            stampaStorageTabella();
+        }
+
+        function inserisciProdotto() {
+            if (document.registrazione.codiceProdotto.value == "selezionare") {
+                alert("Inserire codice");
+                return false;
+            }
+            if (document.registrazione.numeroPezzi.value == "") {
+                alert("Inserire numero");
+                return false;
+            }
+            if (document.registrazione.prezzoUnitario.value == "") {
+                alert("Inserire prezzo");
+                return false;
+            }
+
+
+            var nextpos = ca.length;
+            var carr = {
+                c: document.registrazione.codiceProdotto.value,
+                n: document.registrazione.numeroPezzi.value,
+                p: document.registrazione.prezzoUnitario.value
+            };
+            for (var i = 0; i < nextpos; i++)
+                if (uguali(ca[i], carr)) {
+                    alert("prodotto già inserito");
+                    return false;
+                }
+            alert("Dati inseriti correttamente");
+            ca[nextpos] = carr;
+            localStorage.carrello = JSON.stringify(ca);
+            return true;
+        }
+
+        function calcolaCosto() {
+            var u = JSON.parse(localStorage.carrello);
+            var l = u.length;
+            var tot = 0;
+            for (var i = 0; i < l; i++)
+                tot += parseInt(u[i].p) * parseInt(u[i].n);
+            document.registrazione.costoTotale.value = tot;
+        }
+
+        function calcolaCostoMedio() {
+            var u = JSON.parse(localStorage.carrello);
+            var l = u.length;
+            var j = 0;
+            for (var i = 0; i < l; i++)
+                j += parseInt(u[i].n);
+            document.registrazione.costoMedio.value = parseInt(document.registrazione.costoTotale.value) / j;
+        }
+
+
+    </script>
+</head>
+<body bgcolor=“#048040” text=“#ffffff” onload="inizializzaStorageCarrello()">
+<h1>CARRELLO:</h1>
+<form action="" method="post" name="registrazione" onsubmit="inserisciProdotto()"
+      accept-charset="utf-8">
+    codiceProdotto:
+    <select name="codiceProdotto">
+        <option value="selezionare" selected>Selezionare il prodotto</option>
+        <option value="astuccio">Astuccio</option>
+        <option value="portachiavi">Portachiavi</option>
+    </select>
+
+    <br>
+    numeroPezzi:
+    <input type="text" name="numeroPezzi" size="30" maxlength="30">
+    <br>
+    prezzoUnitario:
+    <input type="text" name="prezzoUnitario" size="20" maxlength="20">
+    <br/>
+    <br>
+
+    <input type="submit" value="Invia">
+    <input type="reset" value="Reset">
+    <br>
+    <br>
+
+    <input type="button" value="Stampa Storage" onclick="stampaStorageTabella()">
+
+    <input type="button" value="Reset Storage" onclick="resetStorage()">
+    <br>
+    <br>
+    costo totale:
+    <input type="text" name="costoTotale" size="20" maxlength="20">
+    <input type="button" value="calcola" onclick="calcolaCosto()">
+    <br>
+    costo medio unitario:
+    <input type="text" name="costoMedio" size="20" maxlength="20">
+    <input type="button" value="calcola" onclick="calcolaCostoMedio()">
+    <hr>
+
+</form>
+<div id="vistaStorage"></div>
+
+</body>
+
+</html>

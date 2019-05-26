@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam 08/02/2018</title>
+</head>
+<body>
+    <!--modificare (il meno possibile) il documento HTML in modo da poter attivare, 
+        cliccando sull’elemento <a> corrispondente,
+        il caricamento asincrono delle URL elencate nel documento:  
+        ogni documento va visualizzato nella posizione in cui compare
+        l’elemento <a> stesso, senza cancellare il link stesso-->
+    <div>
+        <a href="docpart/doc1.html">link</a> <br>
+        <a href="docpart/doc2.html">link</a> <br>
+        <a href="docpart/doc3.html">link</a> <br>
+        <a href="docpart/doc4.html">link</a> <br>
+        <a href="docpart/doc5.html">link</a> <br>
+        <a href="docpart/doc6.html">link</a> <br>
+        <a href="docpart/doc7.html">link</a> <br>
+        <a href="docpart/doc8.html">link</a> <br>
+    </div>
+    <div>
+        <a href="docpart/doc1.html">link</a> <br>
+        <a href="docpart/doc2.html">link</a> <br>
+        <a href="docpart/doc3.html">link</a> <br>
+        <a href="docpart/doc4.html">link</a> <br>
+        <a href="docpart/doc5.html">link</a> <br>
+        <a href="docpart/doc6.html">link</a> <br>
+        <a href="docpart/doc7.html">link</a> <br>
+        <a href="docpart/doc8.html">link</a> <br>
+    </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            $("a").on("click",function(e){
+                e.preventDefault();
+                var xhr = new XMLHttpRequest();
+                xhr.ida = $(this);
+                xhr.open("GET",$(this).attr("href"));
+                xhr.send();
+
+                xhr.onload = function(e){
+                    if(e.target.status==200){
+                        xhr.ida.html(xhr.responseText);
+                    }
+                }
+            });
+        </script>  
+</body>
+</html>

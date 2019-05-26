@@ -1,0 +1,38 @@
+<web-app>
+<!--Servlet name-->
+<servlet>
+    <servlet-name>Cookies</servlet-name>
+    <servlet-class>CookiesTester</servlet-class>
+</servlet>
+
+<servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>Login</servlet-class>
+</servlet>
+
+<servlet>
+    <servlet-name>LoginURL</servlet-name>
+    <servlet-class>LoginURL</servlet-class>
+</servlet>
+
+<!--Servlet mapping-->
+<servlet-mapping>
+    <servlet-name>Cookies</servlet-name>
+    <url-pattern>/servlet/cookies</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/servlet/Login</url-pattern>
+    <url-pattern>/html/page1</url-pattern>
+    <url-pattern>/html/page2</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>LoginURL</servlet-name>
+    <url-pattern>/servlet/LoginURL</url-pattern>
+    <url-pattern>/html/page1_url</url-pattern>
+    <url-pattern>/html/page2_url</url-pattern>
+</servlet-mapping>
+
+</web-app>

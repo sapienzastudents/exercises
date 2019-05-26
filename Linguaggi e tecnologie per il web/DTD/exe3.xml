@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE a [
+<!ELEMENT a (b | c | d)*>
+<!ELEMENT b (#PCDATA)>
+<!ELEMENT c EMPTY>
+<!ELEMENT d (#PCDATA | a)*>
+<!ATTLIST a val CDATA #REQUIRED>
+<!ATTLIST b val CDATA #IMPLIED>
+]>
+<a val="v1">
+<b val="1">riga 1</b>
+<b val="pippo">riga 2</b>
+<c/>
+<b x="3">riga 3</b>      <!--ERRORE B NON HA ATTRIBUTO X-->
+<d>riga 4
+<a val="v2">
+<c val="xyz"/>          <!--ERRORE NON è DEFINITO ALCUN ATTRIBUTO PER C-->
+</a>
+</d>
+</a>
