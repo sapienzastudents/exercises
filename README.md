@@ -2,6 +2,10 @@ Questo non è altro che un semplice "contenitore di esercitazioni" di vari corsi
 Il progetto ha il solo scopo di aiutare gli studenti ad esercitarsi e a confrontarsi con le soluzioni già presenti.
 Le esercitazioni dei corsi attualmenti presenti sono:
 
+Architettura degli Elaboratori - 2° canale mantenuto da
+                                        [Alessio Giovannini](https://gitlab.com/solifugo)
+                                        [Stefano](https://gitlab.com/themrpink)
+
 
 *  Architettura degli Elaboratori - 2° canale mantenuto da \n
                                         1. [Alessio Giovannini](https://gitlab.com/solifugo)\n
