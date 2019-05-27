@@ -9,6 +9,9 @@ AVVISO IMPORTANTE: Il materiale caricato deve rispettare le seguenti regole:
 - NON si possono caricare esercizi pubblici (e non) che vadano in seguito consegnati ai professori per aumentare il voto dell'esame
 - Se non si è certi di poter caricare certi esercizi chiedere prima l'eventuale autorizzazione ai professori, spiegando in cosa consiste il progetto
 
+<h4>Nel caso in cui le regole sopracitate non vengano rispettate, il responsabile se ne assume la totale responsabilità! 
+(ricordate che qui si vede chi ha caricato cosa e quando)</h4>
+
 Le esercitazioni dei corsi attualmenti presenti sono:
 
 - Architettura degli Elaboratori  
