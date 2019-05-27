@@ -6,7 +6,7 @@ AVVISO IMPORTANTE: Il materiale caricato deve rispettare le seguenti regole:
 - Si possono caricare esercizi inventati, che trattino comunque gli argomenti tenuti durante il corso
 - Si possono caricare esercizi tratti da libri
 - NON possono essere caricati soluzioni di esami passati le cui tracce non sono state rese pubbliche dai professori stessi, esercizi di Homework e Progetti in corso
-- NON si possono caricare esercizi pubblici e non che vadano in seguito consegnati ai professori per aumentare il voto dell'esame
+- NON si possono caricare esercizi pubblici (e non) che vadano in seguito consegnati ai professori per aumentare il voto dell'esame
 - Se non si è certi di poter caricare certi esercizi chiedere prima l'eventuale autorizzazione ai professori, spiegando in cosa consiste il progetto
 
 Le esercitazioni dei corsi attualmenti presenti sono:
