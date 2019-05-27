@@ -1,7 +1,7 @@
 <h3>Questo non è altro che un semplice "contenitore di esercitazioni" di vari corsi tenuti presso la facoltà di Informatica della Sapienza Università di Roma.
 Il progetto ha il solo scopo di aiutare gli studenti ad esercitarsi e a confrontarsi con le soluzioni proposte da altri.</h3>
 
-<h4>AVVISO IMPORTANTE: Il materiale caricato deve rispettare le seguenti regole:<h4>
+AVVISO IMPORTANTE: Il materiale caricato deve rispettare le seguenti regole:
 - Si possono caricare esercizi svolti in aula o soluzioni ad esercizi caricati sui siti dei professori (Quindi disponibili a tutti)
 - Si possono caricare esercizi inventati, che trattino comunque gli argomenti tenuti durante il corso
 - Si possono caricare esercizi tratti da libri
