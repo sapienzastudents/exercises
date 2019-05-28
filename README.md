@@ -14,16 +14,18 @@ AVVISO IMPORTANTE: Il materiale caricato deve rispettare le seguenti regole:
 
 Le esercitazioni dei corsi attualmenti presenti sono:
 
-- Architettura degli Elaboratori  
+- **Architettura degli Elaboratori**  
     - **2° canale mantenuto da** 
             - [Alessio Giovannini](https://gitlab.com/solifugo) 
             - [Stefano](https://gitlab.com/themrpink)
     - **1° canale mantenuto da** 
             - [Andrea Gasparini](https://gitlab.com/GaspRulez)
-- Programmazione per il Web - Mantenuto da 
-    - [Alessio Giovannini](https://gitlab.com/solifugo)
-- Linguaggi e tecnologie per il web - Mantenuto da 
-    - [Alessio Giovannini](https://gitlab.com/solifugo)
+- Programmazione per il Web 
+    - Mantenuto da 
+        - [Alessio Giovannini](https://gitlab.com/solifugo)
+- Linguaggi e tecnologie per il web 
+    - Mantenuto da 
+       - [Alessio Giovannini](https://gitlab.com/solifugo)
 - Metodologie di programmazione:
     - **2° canale mantenuto da**
             - [Andrea Raieta](https://gitlab.com/andreara92)
