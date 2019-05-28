@@ -21,7 +21,7 @@ Le esercitazioni dei corsi attualmenti presenti sono:
     - 1° canale mantenuto da
             - [Andrea Gasparini](https://gitlab.com/GaspRulez)
 - **Programmazione per il Web** 
-    Mantenuto da - [Alessio Giovannini](https://gitlab.com/solifugo)
+    - Mantenuto da - [Alessio Giovannini](https://gitlab.com/solifugo)
 - **Linguaggi e tecnologie per il web**
     - Mantenuto da - [Alessio Giovannini](https://gitlab.com/solifugo)
 - **Metodologie di programmazione**
