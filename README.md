@@ -26,4 +26,4 @@ Le esercitazioni dei corsi attualmenti presenti sono:
     - [Alessio Giovannini](https://gitlab.com/solifugo)
 - Metodologie di programmazione:
     - **2° canale mantenuto da**
-            -[Andrea Raieta](https://gitlab.com/andreara92)
+            - [Andrea Raieta](https://gitlab.com/andreara92)
