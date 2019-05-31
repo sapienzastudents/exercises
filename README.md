@@ -12,6 +12,16 @@ AVVISO IMPORTANTE: Il materiale caricato deve rispettare le seguenti regole:
 <h4>Nel caso in cui le regole sopracitate non vengano rispettate, il responsabile se ne assume la totale responsabilità! 
 (ricordate che qui si vede chi ha caricato cosa e quando)</h4>
 
+Per mantenere una migliore organizzazione dei testi siete pregati di scrive (come linea commentata nel codice o a mano su gli esercizi fotocopiati) il link da dove è stato preso l'esercizio/esame,
+il nome di chi ha risolto l'esercizio, e se necessario di chi l'ha modificato. Ecco un esempio
+
+```
+# www.pincopallo.com <-- Testo dell'esercizio
+# Svolto da Mr. x
+# Modificato da Mr. y
+```
+
+
 Le esercitazioni dei corsi attualmenti presenti sono:
 
 - **Architettura degli Elaboratori**  
