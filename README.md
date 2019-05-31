@@ -2,7 +2,7 @@
 Il progetto ha il solo scopo di aiutare gli studenti ad esercitarsi e a confrontarsi con le soluzioni proposte da altri.</h3>
 
 AVVISO IMPORTANTE: Il materiale caricato deve rispettare le seguenti regole:
-- Si possono caricare esercizi svolti in aula o soluzioni ad esercizi caricati sui siti dei professori (Quindi disponibili a tutti)
+- Si possono caricare esercizi svolti in aula o soluzioni ad esercizi caricati sui siti dei professori (Mi raccomando fare riferimento soltanto ai siti in presenza, quindi disponibili a tutti)
 - Si possono caricare esercizi inventati, che trattino comunque gli argomenti tenuti durante il corso
 - Si possono caricare esercizi tratti da libri
 - NON possono essere caricati soluzioni di esami passati le cui tracce non sono state rese pubbliche dai professori stessi, esercizi di Homework e Progetti in corso
