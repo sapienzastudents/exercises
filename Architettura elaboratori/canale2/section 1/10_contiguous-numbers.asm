@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva un programma in linguaggio assembler MIPS/MARS che stampa 1 se, 
 # in una sequenza di dieci numeri inseriti da tastiera, ci sono almeno due o più numeri consecutivi uguali.
 # NB:la stampa deve avvenire da console output del MARS. In caso di esito negativo stampare -1

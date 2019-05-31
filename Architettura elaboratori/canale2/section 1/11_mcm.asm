@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva un programma in linguaggio MIPS/MARS per calcolare il minimo comune multiplo (MCM) di due numeri 
 # interi positivi immessi da tastiera. Stampare il MCM. Dati due numeri interi N1 e N2, 
 # il minimo comune multiplo è il più piccolo numero M che è divisibile (con resto pari a zero) 

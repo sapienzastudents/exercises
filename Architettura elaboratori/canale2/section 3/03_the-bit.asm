@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Dato un intero  positivo a definito in memoria, stampare a video "Terzo bit 1" nel caso in cui il terzo bit 
 # del numero a sia 1 o  "Terzo bit 0" altrimenti
 

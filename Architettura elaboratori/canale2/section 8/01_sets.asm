@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# NON COMPLETO
+
 # Si scriva un programma in assembler che definiti due INSIEMI (cioe' due vettori halfword) opera su di essi con tre subroutine
 # UNIONE, INTERSEZIONE, DIFFERENZA.
 # In particolare:

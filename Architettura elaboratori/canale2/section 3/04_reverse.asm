@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Dato a intero positivo (da 0 a 255) inserito da tastiera, scrivere il valore binario di a al contrario
 
 # Esempio

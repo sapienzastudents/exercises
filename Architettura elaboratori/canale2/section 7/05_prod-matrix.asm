@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# DA SVOLGERE
+
 # Definita una matrice in memoria di 8 righe e 8 colonne con elementi halfword, A10x10, stampare in output una nuova matrice B5x5 
 # in cui le colonne sono date dal prodotto degli elementi delle colonne della matrice originaria: 
 # cioè M4x4 b1,1=a1,1*a1,2; b1,2=a1,3*a1,4; b1,3=a1,5*a1,6; b1,4=a1,7*a1,8.

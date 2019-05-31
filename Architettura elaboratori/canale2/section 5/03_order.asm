@@ -1,4 +1,7 @@
- # Scrivere un programma in linguaggio assembly MARS che riceve in ingresso una sequenza di N numeri interi.
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
+# Scrivere un programma in linguaggio assembly MARS che riceve in ingresso una sequenza di N numeri interi.
 # I numeri sono memorizzati in un vettore. Il valore N e' inserito dall'utente prima della lettura del vettore,
 # ma il vettore puo' contenere al massimo 30 numeri. Terminato l'inserimento della sequenza di numeri,
 # il programma deve verificare se il vettore contiene una sequenza di numeri ordinata in modo strettamente crescente.

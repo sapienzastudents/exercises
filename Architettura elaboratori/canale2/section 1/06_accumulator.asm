@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva un programma in linguaggio assembler MIPS/MARS che legga da tastiera una serie di numeri interi 
 # ﬁno a quando la somma di tutti i numeri introdotti ﬁno a quel momento non supera il valore 1000. 
 # A quel punto, il programma stampa il valore del prodotto di tutti i numeri inseriti.

@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# DA SVOLGERE
+
 # Definita in memoria una matrice di 4 righe e 4 colonne con elementi byte, stampare in output 
 # la somma degli elementi prensenti lungo una colonna ESEMPIO:
 # MEMORIA

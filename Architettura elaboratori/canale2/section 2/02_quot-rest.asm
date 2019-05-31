@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Implementare un programma che legga da input un intero positivo a>2 (word) ed un intero positivo (word) b>1 e 
 # restituisca in output il quoziente e resto della divisione a/b.
 

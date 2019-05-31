@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva la routine assembler MIPS che implementa la funzione ricorsiva definita come segue:
 
 #    f(a,b,c,d) = 1 se a+b+c+d=0

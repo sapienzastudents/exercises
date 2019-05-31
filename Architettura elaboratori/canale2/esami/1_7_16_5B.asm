@@ -1,3 +1,5 @@
+# Svolto da Stefano 
+
 #si realizzi la funzione conta_bit_diversi(X,Y) RICORSIVA che riceve due interi X ed Y maggiori di zero e ne calcola
 #il numero di bit diversi nella stessa posizione come segue:
 #conta_bit_diversi( X, Y ) = 0  se X=0 e Y=0  (solo quando XeY sono stati esaminati tutti)

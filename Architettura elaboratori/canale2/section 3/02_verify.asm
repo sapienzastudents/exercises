@@ -1,4 +1,7 @@
-Dato il seguente programma, determinare il valore  di risb, rish, risw. 
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Da svolgere
+
+# Dato il seguente programma, determinare il valore  di risb, rish, risw. 
 .text
 
 .globl main
@@ -21,6 +24,6 @@ Valore2: .byte 250
 risb: .byte 0
 rish: .half 0
 risw: .word 0
-Implementare il codice e verificare la risposta
+# Implementare il codice e verificare la risposta
 
  

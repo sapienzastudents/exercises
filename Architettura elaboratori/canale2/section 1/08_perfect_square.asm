@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva un programma in linguaggio assembler MIPS/MARS per il calcolo dei quadrati perfetti per una sequenza
 # di numeri. Il programma deve prima leggere un numero inserito da tastiera, e quindi stampare i primi quadrati 
 # perfetti sino al quadrato del numero.

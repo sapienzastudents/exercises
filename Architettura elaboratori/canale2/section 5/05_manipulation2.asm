@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Scrivere un programma in linguaggio assembly MARS che legga una stringa introdotta da tastiera. La stringa contiene sia caratteri maiuscoli che caratteri minuscoli, 
 # e complessivamente al piu' 100 caratteri. Il programma deve svolgere le seguenti operazioni:
 # - visualizzare la stringa inserita
@@ -13,8 +16,8 @@
 	out: .space 100
 
 .eqv $bit, $t0									# Indica il bit in valutazione
-.eqv $source, $t1								# Conterrà indirizzo del valore passato in input
-.eqv $dest, $t2									# Conterrà il valore eventualmente modificato dell'input
+.eqv $source, $t1								# Conterrï¿½ indirizzo del valore passato in input
+.eqv $dest, $t2									# Conterrï¿½ il valore eventualmente modificato dell'input
 .eqv $prev, $t3									# Ad ogni valutazione viene salvato in questa variabile il precedente in ordine 
 .eqv $stat1, $t4									# Variabile per controllo caratteri
 .eqv $stat2, $t5								# Variabile per controllo caratteri
@@ -30,7 +33,7 @@ main:
 	la $source, inp								# Legge l'indirizzo del vettore sorgente
 	la  $dest, out									# Legge l'indirizzo del vettore destinazione
 	li $bit, 1											# Valore fittizio per non falsare il test del loop
-	li $prev, ' '										# Carichiamo lo spazio vuoto in $prev cosi' anche la prima lettera della frase può essere capitalizzata
+	li $prev, ' '										# Carichiamo lo spazio vuoto in $prev cosi' anche la prima lettera della frase puï¿½ essere capitalizzata
 loop:
 	beqz $bit, end
 	lb $bit, ($source)
@@ -47,7 +50,7 @@ loop:
 	sge $stat1, $bit, 'a'
 	sle $stat2, $bit, 'z'
 	and $stat1, $stat1, $stat2
-	bnez $stat1, capitalize 				# Se non è zero allora il valore è compreso tra 'a' e 'z', quindi richiama capitalize che si occuperà del controllo e della trasformazione 
+	bnez $stat1, capitalize 				# Se non ï¿½ zero allora il valore ï¿½ compreso tra 'a' e 'z', quindi richiama capitalize che si occuperï¿½ del controllo e della trasformazione 
 	
 	# Si setta il valore di base dei controlli
 	move $stat1, $zero
@@ -57,7 +60,7 @@ loop:
 	sge $stat1, $bit, 'A'
 	sle $stat2, $bit, 'Z'
 	and $stat1, $stat1, $stat2
-	bnez $stat1, minimize					# Se il valore precendente non è lo spazio allora ci troviamo all'interno di una frase 
+	bnez $stat1, minimize					# Se il valore precendente non ï¿½ lo spazio allora ci troviamo all'interno di una frase 
 
 normal:
 	sb $bit, ($dest)								# Salviamo il carattere senza modificarlo
@@ -78,7 +81,7 @@ end:
 
 # Questa subroutine effettua un uppercase, ma controlla anche se ci si trova all'inizio di una frase
 capitalize:											
-	bne $prev, ' ', normal					#Se il precedente non è uno spazio la lettera non dece essere trasformata e si prosegue con il semblice salvataggio
+	bne $prev, ' ', normal					#Se il precedente non ï¿½ uno spazio la lettera non dece essere trasformata e si prosegue con il semblice salvataggio
 	subi $bit, $bit, 32
 	sb $bit, ($dest)								# Salva il bit nel vettore di destinazione
 	
@@ -90,7 +93,7 @@ capitalize:
 
 # Questa subroutine effettua un lowercase, ma controlla anche se ci si trova all'inizio di una frase	
 minimize:
-	beq $prev, ' ', normal					#Se il precedente non è uno spazio la lettera non deve essere trasformata e si prosegue con il semblice salvataggio
+	beq $prev, ' ', normal					#Se il precedente non ï¿½ uno spazio la lettera non deve essere trasformata e si prosegue con il semblice salvataggio
 	addi $bit, $bit, 32
 	sb $bit, ($dest)								# Salva il bit nel vettore di destinazione
 	

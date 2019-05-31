@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Un utente inserisce da tastiera una serie di numeri interi positivi, 
 # ed il termine della serie è indicato dall’inserimento del valore -1. 
 # Il programma in linguaggio MIPS, al termine dell’inserimento, 

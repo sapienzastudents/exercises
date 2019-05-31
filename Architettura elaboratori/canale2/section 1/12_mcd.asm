@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva un programma in linguaggio MIPS/MARS per calcolare il massimo comun divisore (MCD) di due numeri 
 # interi positivi. Il MCD è deﬁnito come il massimo tra i divisori comuni ai due numeri. Stampare il MCD.
 

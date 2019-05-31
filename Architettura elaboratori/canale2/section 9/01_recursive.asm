@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva la routine assembler MIPS che implementa la funzione ricorsiva definita come segue:
 
 #    f(x,y) = 1 se uno (almeno) tra x,y vale 0
@@ -38,10 +41,10 @@ func:
 	sw $x, 4($sp)
 	sw $y, 8($sp) 
 	
-	beqz $x, cbase 					# Se l'argomento in $a0 è 0 allora ci troviamo nel caso base	
-	beqz $y, cbase   					# Se l'argomento in $a1 è 0 allora ci troviamo nel caso base
+	beqz $x, cbase 					# Se l'argomento in $a0 ï¿½ 0 allora ci troviamo nel caso base	
+	beqz $y, cbase   					# Se l'argomento in $a1 ï¿½ 0 allora ci troviamo nel caso base
 	
-	#swap (scambia la x con la y poichè ad ogni chiamata vanno invertiti)
+	#swap (scambia la x con la y poichï¿½ ad ogni chiamata vanno invertiti)
 	subi $t0, $x, 1    					# Decremento di x
 	move $x, $y		 
 	move $y, $t0

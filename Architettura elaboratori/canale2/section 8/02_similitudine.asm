@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# DA SVOLGERE
+
 # Si scriva un programma in assembler che legge due stringhe da tastera e al suo interno usa una subroutine, denominata SIMILITUDINE, 
 # che valuta quanti caratteri alle stesse posizioni delle due stringhe sono uguali.
 # La routine riceve due parametri, "le stringhe" (cioe' gli indirizzi delle stringhe), e restituisce un numero intero e lo stampa a video.

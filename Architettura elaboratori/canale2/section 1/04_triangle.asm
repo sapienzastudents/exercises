@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva un programma in linguaggio assembler MIPS/MARS che legga da tastiera i valori delle lunghezze 
 # dei tre lati di un triangolo e determina:
 #   - se il triangolo è scaleno (porre $t0=0)

@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Implementare in linguaggio assembly MIPS un programma che calcola il massimo tra N elementi immessi in input (la lettura termina quando si introduce 
 # un numero negativo). 
 # Utilizzare la sub-routine (funzione) MASSIMO che presi due elementi restituisce il massimo.
@@ -33,7 +36,7 @@ collect:
 	syscall									# Leggi l'intero da input
 	
 	move $curr, $v0
-	bltz $curr, loop					# Se il numero immesso è minore di zero terminare l'inserimento
+	bltz $curr, loop					# Se il numero immesso ï¿½ minore di zero terminare l'inserimento
 	
 	subi $sp, $sp, 4					# Alloca spazio nello stack
 	sw $curr, ($sp)					# Salva il valore immesso sullo stack
@@ -49,8 +52,8 @@ loop:
 	j loop
 	
 Massimo: 
-	blt $a0, $max, dont				# Se il valore è più piccolo del massimo non fare nulla
-	move $max, $a0 					# Il valore esaminato nello stack è attualmente il maggiore
+	blt $a0, $max, dont				# Se il valore ï¿½ piï¿½ piccolo del massimo non fare nulla
+	move $max, $a0 					# Il valore esaminato nello stack ï¿½ attualmente il maggiore
 	jr $ra
 	
 dont:

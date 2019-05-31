@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# DA SVOLGERE
+
 # Definita una matrice in memoria di 4 righe e 3 colonne A4x3 con elementi word, stampare in output la matrice trasposta A 3x4. 
 # La matrice trasposta At è costituita dagli elementi alla posizione inversa della matrice originale A:
 # cioè A(ai,j) si trova in At(aj,i)

@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Implementare il seguente programma:
 # $t0=1 se il valore della variabile Memole, definita in memoria, 
 # ha alla terza posizione meno significativa un 1.

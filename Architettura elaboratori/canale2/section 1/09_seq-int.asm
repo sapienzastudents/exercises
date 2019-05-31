@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Un utente introduce da tastiera due numeri interi (INIT e LUNG). Il programma MIPS/MARS deve stampare 
 # una serie di numeri interi consecutivi. La serie inizia al valore INIT ed è lunga LUN elementi.
 

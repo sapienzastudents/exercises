@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Confrontare due interi positivi a e b, definiti in memoria, e mettere in $t0 il valore 0 se a e' maggiore di b, 
 # 1 altrimenti. Non e' possibile utilizzare l'istruzione di comparazione tra valori: operare sui singoli bit dei valori.
 

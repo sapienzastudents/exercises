@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Un programma in assembly MARS deve leggere dall'utente due vettori di 5 numeri interi ciascuno. 
 # Il programma deve creare un ulteriore vettore, che contenga la copia dei soli elementi pari presenti 
 # nei due vettori di partenza, e stampare tale vettore.

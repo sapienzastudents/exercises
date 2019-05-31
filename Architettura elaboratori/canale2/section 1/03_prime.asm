@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Descrivere l'algoritmo  che dato un numero intero maggiore di 2 (definito in memoria) stabilisca se il numero
 # è primo (valore 1 in $t2) o no (valore 2 in $t2). Provare ad implementare il programma utilizzando MARS.
 

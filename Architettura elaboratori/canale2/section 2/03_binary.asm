@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Implementare un programma che legga da input un intero e calcoli il numero di 1 della sua rappresentazione binaria.
 
 # Esempio

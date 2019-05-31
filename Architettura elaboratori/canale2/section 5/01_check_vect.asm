@@ -1,7 +1,10 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Scrivere un programma in linguaggio assembly MIPS che riceve in ingresso 
 # una sequenza di N numeri interi. I numeri sono memorizzati in un vettore. 
 # Il valore N è inserito dall’utente, ma il vettore può contenere al massimo 30 numeri.
-# Terminato l'inserimento della sequenza di numeri, il programma deve veri�?care se 
+# Terminato l'inserimento della sequenza di numeri, il programma deve veri�?care se 
 # gli elementi del vettore sono tutti uguali tra loro.
 
 .globl main 

@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva un programma in linguaggio assembler MIPS/MARS che acquisisca tre numeri interi da tastiera e:
 #   - metta in $t0 del valore maggiore 
 # NB: Trascurare il caso in cui i numeri siano uguali  

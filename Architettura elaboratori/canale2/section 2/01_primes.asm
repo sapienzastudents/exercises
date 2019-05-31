@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Traccia 1. Implementare un programma che:
 # stampa a video “Primo numero: ” e prenda in input un numero a
 # stampa a video “Secondo numero: ” e prenda in input un numero b

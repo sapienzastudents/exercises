@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Si scriva la routine assembler MIPS che implementa la funzione ricorsiva definita come segue:
 
 #    f(x,y,z)=8 se x*y*z=0
@@ -47,7 +50,7 @@ recursion:
 	# Controlli per capire se ci troviamo nel caso base, cioe' se x*y*z = 0
 	mul $t0, $x, $y
 	mul $t0, $t0, $z
-	beqz $t0, cbase				# Se il risultato della moltiplicazione è 0 allora siamo nel caso base e quindi saltiamo
+	beqz $t0, cbase				# Se il risultato della moltiplicazione ï¿½ 0 allora siamo nel caso base e quindi saltiamo
 	
 	#Se non siamo nel caso base scambiamo le variabili e richiamiamo ricorsivamente la funzione
 	#x = z, y=x, z=y-1

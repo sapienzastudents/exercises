@@ -1,3 +1,5 @@
+# Svolto da Stefano
+
 #Esercizio 5A.
 #1) si realizzi la funzione conta_bit_uguali(X,Y) RICORSIVA che riceve due interi X ed Y maggiori di zero e ne calcola
 #il numero di bit uguali nella stessa posizione come segue:

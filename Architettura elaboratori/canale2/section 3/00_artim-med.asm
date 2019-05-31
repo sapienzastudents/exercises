@@ -1,3 +1,6 @@
+# http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
+# Svolto da Alessio Giovannini
+
 # Implementare un programma che dati cinque interi positivi definiti in memoria ne calcoli la media aritmetica
 
 # Esempio
