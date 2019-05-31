@@ -1,0 +1,11 @@
+Ricordatevi sempre che lo stack procede verso il basso, quindi per allocare spazio per memorizzare dati dovete decrementare lo stack pointer.
+Inoltre scrivendo questo:
+
+lw $v0, 0($sp)
+lw $ra, 4($sp)
+lw $a, 8($sp)
+lw $b, 12($sp)
+lw $c, 16($sp)
+lw $d, 20($sp)
+
+tenete sempre a mente che $v0 si trova in fondo allo stack e non in cima! i numeri potrebbero confondervi se non siete abituati 

@@ -15,25 +15,27 @@
 main:
 	li $v0,5
 	syscall
-	move $x, $v0
+	move $x, $v0					 # Leggo e memorizzo il valore di x
 
 	li $v0,5
 	syscall
-	move $y, $v0
+	move $y, $v0					 # Leggo e memorizzo il valore di y
 	
 	li $v0,5
 	syscall
-	move $z, $v0
+	move $z, $v0					# Leggo e memorizzo il valore di z
 	
-	jal recursion
+	jal recursion				   	# Chiamo la funzione
 	
-	lw $v0, ($sp)		# Recupero il valore finale
+	# Al termine della funzione ricorsiva si tornera' qui
+	
+	lw $v0, ($sp)					# Recupero il valore finale
 	move $a0, $v0
 	li $v0, 1
-	syscall
+	syscall								# Stampo il risultato
 	
 	li $v0, 10
-	syscall						# Fine del programma
+	syscall								# Fine del programma
 	
 recursion:
 	subi $sp, $sp, 16
@@ -45,7 +47,7 @@ recursion:
 	# Controlli per capire se ci troviamo nel caso base, cioe' se x*y*z = 0
 	mul $t0, $x, $y
 	mul $t0, $t0, $z
-	beqz $t0, cbase
+	beqz $t0, cbase				# Se il risultato della moltiplicazione è 0 allora siamo nel caso base e quindi saltiamo
 	
 	#Se non siamo nel caso base scambiamo le variabili e richiamiamo ricorsivamente la funzione
 	#x = z, y=x, z=y-1
@@ -54,7 +56,7 @@ recursion:
 	subi $z, $y,1
 	move $y, $t1
 	
-	jal recursion
+	jal recursion					# Chiamata ricorsiva
 	
 	lw $v0, 0($sp)
 	lw $ra, 4($sp)
