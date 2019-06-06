@@ -1,6 +1,7 @@
 <h2>Introduzione</h2>
 Semplice "contenitore di esercitazioni" di vari corsi tenuti presso la facoltà di Informatica della Sapienza Università di Roma.
 Il progetto ha il solo scopo di aiutare gli studenti ad esercitarsi e a confrontarsi con le soluzioni proposte da altri.
+NON SONO AMMESSI COMPORTAMENTI CHE POSSANO DANNEGGIARE DOCENTI O INVALIDARE ESAMI!
 
 <h2>Regolamento</h2>
 - Si possono caricare esercizi svolti in aula o soluzioni ad esercizi caricati sui siti dei professori **(Mi raccomando fare riferimento soltanto ai siti in presenza, quindi disponibili a tutti)**
@@ -30,11 +31,11 @@ il nome di chi ha risolto l'esercizio, e se necessario di chi l'ha modificato. E
 Le esercitazioni dei corsi attualmenti presenti sono:
 
 - **Architettura degli Elaboratori**  
-    - 2° canale mantenuto da 
-            - [Alessio Giovannini](https://gitlab.com/solifugo) 
-            - [Stefano](https://gitlab.com/themrpink)
-    - 1° canale mantenuto da
-            - [Andrea Gasparini](https://gitlab.com/GaspRulez)
+    # 2° canale mantenuto da <br> 
+            - [Alessio Giovannini](https://gitlab.com/solifugo)<br> 
+            - [Stefano](https://gitlab.com/themrpink)<br><br>
+    # 1° canale mantenuto da<br>
+            - [Andrea Gasparini](https://gitlab.com/GaspRulez)<br>
 - **Programmazione per il Web** 
     - Mantenuto da - [Alessio Giovannini](https://gitlab.com/solifugo)
 - **Linguaggi e tecnologie per il web**
