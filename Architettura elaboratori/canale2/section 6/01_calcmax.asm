@@ -18,9 +18,9 @@
 	max: .word
 	mex: .asciiz "Immettere sequenza di numeri dei quali si vuole trovare il massimo:\n"
 
-.eqv $idx, $t0							# Contatore che indica il numero di elementi del vettore
+.eqv $idx, $t0					    # Contatore che indica il numero di elementi del vettore
 .eqv, $curr, $t1
-.eqv $max, $t2							# Indica il numero massimo
+.eqv $max, $t2						# Indica il numero massimo
 
 .text
 main:
@@ -28,32 +28,32 @@ main:
 	move $max, $zero				# Inizializza il massimo
 	la $a0, mex
 	li $v0, 4
-	syscall 									# Stampa la stringa
+	syscall 						# Stampa la stringa
 
 # la routine collect si occupa di salvare il vettore immesso sullo stack
 collect:
 	li $v0, 5
-	syscall									# Leggi l'intero da input
+	syscall							# Leggi l'intero da input
 	
 	move $curr, $v0
-	bltz $curr, loop					# Se il numero immesso � minore di zero terminare l'inserimento
+	bltz $curr, loop				# Se il numero immesso e' minore di zero terminare l'inserimento
 	
-	subi $sp, $sp, 4					# Alloca spazio nello stack
+	subi $sp, $sp, 4				# Alloca spazio nello stack
 	sw $curr, ($sp)					# Salva il valore immesso sullo stack
-	addi $idx, $idx, 1					# Incrementa il contatore del numero di elementi
+	addi $idx, $idx, 1				# Incrementa il contatore del numero di elementi
 	j collect								
 
 loop:
 	beqz $idx, end					# Se sono stati esaminati tutti gli elementi nello stack abbiamo finito
-	lw $a0, ($sp)						# Carica l'elemento dalla cima dello stack
-	addi $sp, $sp, 4					# Libera lo spazio
-	subi $idx, $idx,1			 		# Decrementa il contatore
-	jal Massimo							# Chiamata a subroutine per trovare il massimo
+	lw $a0, ($sp)					# Carica l'elemento dalla cima dello stack
+	addi $sp, $sp, 4				# Libera lo spazio
+	subi $idx, $idx,1			 	# Decrementa il contatore
+	jal Massimo						# Chiamata a subroutine per trovare il massimo
 	j loop
 	
 Massimo: 
-	blt $a0, $max, dont				# Se il valore � pi� piccolo del massimo non fare nulla
-	move $max, $a0 					# Il valore esaminato nello stack � attualmente il maggiore
+	blt $a0, $max, dont				# Se il valore e' piu' piccolo del massimo non fare nulla
+	move $max, $a0 					# Il valore esaminato nello stack e' attualmente il maggiore
 	jr $ra
 	
 dont:
@@ -62,7 +62,7 @@ dont:
 end:
 	move $a0, $max
 	li $v0,1
-	syscall 									# Stampa il massimo
+	syscall 						# Stampa il massimo
 	
 	li $v0, 10
-	syscall 									# Fine del programma
+	syscall 						# Fine del programma

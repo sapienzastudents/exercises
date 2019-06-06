@@ -7,19 +7,56 @@
 .globl main
 
 .data
-	a: .word 42
-	b: .word 31
+	A: .word 42
+	B: .word 31
 
 .eqv $res,  $t0
 .eqv $a,  $t1  
 .eqv $b,  $t2 
+.eqv $idx, $t7
 
 .text
 main:
-	lw $a, a
-	lw $b, b
+	lw $a, A
+	lw $b, B
+	li $idx, 32
+	
+	andi $t3,$a, 0x80000000			#Valore del bit piu' significativo 
+	andi $t4,$b, 0x80000000		#Valore del bit piu' significativo
+	
+	sne $res, $t3, 0x80000000
+	bnez $res, end
+	
+	seq $res, $t4, 0x80000000
+	bnez $res, end  
 	
 repeat:
-	andi $t3,$a, 0x80000000		#Valore del bit più significativo 
+	andi $t3,$a, 0x80000000		#Valore del bit piu' significativo 
+	andi $t4,$b, 0x80000000		#Valore del bit piu' significativo
 	
+	beq $t3, 0x80000000, 
+	
+	
+	sll $a, $a,1
+	sll $b, $b,1
+
+	seq 
+
+	subi $idx, $idx, 1
+	bgtz $idx, repeat
+
+end:
+	li $v0, 10
+	syscall
+
+bigger:
+	move $a0, $res
+	li $v0,1
+	syscall
+	j end
+
+
+
+
+
 

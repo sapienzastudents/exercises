@@ -11,29 +11,5 @@
 
 # NB: La media deve essere espressa con un numero reale (float). Utilizzare il coprocessore matematico. 
 
-.globl main
 
-.data
-	N: .word 7
-
-.eqv $sum,$t1
-.eqv $max $t2
-
-.text
-main:
-	move $t0,$zero
-	li $sum, 0
-	lw $max, N
-	
-scan:
-	beq $t0,$max,end
-	addi $t0,$t0,1
-	
-	li $v0,5
-	syscall
-	
-	add $sum,$sum,$v0
-	j scan
-
-end:
 	

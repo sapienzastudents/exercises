@@ -8,6 +8,9 @@
 
 .data
 	test1: .word 31 			# In binario 11111
+	test2: .word 26			# In binario 11010
+	test3: .word 16			# In binario 10000
+	test4: .word 69			# In binario 1000101
 
 .eqv $val, $t0
 .eqv $idx, $t1
@@ -15,17 +18,13 @@
 
 .text
 main:
-	lw $val, test1
-	li $idx, 3
+	lw $val, test4
+	li $idx, 1
 	
-repeat:
-	andi $a0, $val, 0x80000000
-	#srl $a0,$bit,31
+	andi $val, $val, 4
+	seq $a0, $val, 4
 	li $v0,1
 	syscall
-	sll $val, $val,1
-	subi $idx, $idx,1
-	bgtz $idx, repeat
 
 end:
 	li $v0,10

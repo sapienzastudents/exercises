@@ -17,7 +17,7 @@
 	mex: .asciiz "Immettere numero: "
 
 .eqv $first,$t0   					#Primo nummero immeso da tastiera
-.eqv $second,$t1  				#Secondo nummero immeso da tastiera
+.eqv $second,$t1  					#Secondo nummero immeso da tastiera
 .eqv $res, $t2    					#Risultato del mcm
 
 .text
@@ -49,16 +49,16 @@ main:
 verify:
 	#Controllo se $first e' divisibile $second
 	div $first, $second
-	mfhi $t3 										# Resto della divisione
+	mfhi $t3 								# Resto della divisione
 	seq $t3,$t3,$zero 						# Se il resto della divisione e' zero 
 	move $res, $first 						# Settaggio risultato 
 	bnez $t3,end 
 	
 	#Controllo se $second e' divisibile per $first
 	div $second, $first
-	mfhi $t3 										# Resto della divisione
+	mfhi $t3 								# Resto della divisione
 	seq $t3,$t3,$zero 						# Se il resto della divisione e' zero 
-	move $res, $second 					# Settaggio risultato 
+	move $res, $second 						# Settaggio risultato 
 	bnez $t3,end 
 	
 	#Se sono giunto fino a qui i numeri sono diversi, quindi ottengo il mcm moltiplicandoli
