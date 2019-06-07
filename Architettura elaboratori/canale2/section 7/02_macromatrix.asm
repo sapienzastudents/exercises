@@ -1,5 +1,5 @@
 # http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
-# DA SVOLGERE
+# Svolta da Alessio Giovannini
 
 # Trasformare il programma nella Traccia 1 in una macro.
 .globl main
