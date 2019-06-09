@@ -4,12 +4,12 @@ Il progetto ha il solo scopo di aiutare gli studenti ad esercitarsi e a confront
 <b>NON SONO AMMESSI COMPORTAMENTI CHE POSSANO DANNEGGIARE DOCENTI O INVALIDARE ESAMI!</b>
 
 <h2>Regolamento</h2>
-- Si possono caricare esercizi svolti in aula o soluzioni ad esercizi caricati sui siti dei professori <b>(Mi raccomando fare riferimento soltanto ai siti in presenza, quindi disponibili a tutti)</b>
-- Si possono caricare esercizi inventati, che trattino comunque gli argomenti tenuti durante il corso
-- Si possono caricare esercizi tratti da libri
-- NON possono essere caricati soluzioni di esami passati le cui tracce non sono state rese pubbliche dai professori stessi, esercizi di Homework e Progetti in corso
-- NON si possono caricare esercizi pubblici (e non) che vadano in seguito consegnati ai professori per aumentare il voto dell'esame
-- Se non si è certi di poter caricare certi esercizi chiedere prima l'eventuale autorizzazione ai professori, spiegando in cosa consiste il progetto
+- Si possono caricare esercizi svolti in aula o soluzioni ad esercizi caricati sui siti dei professori <b>(Mi raccomando fare riferimento soltanto ai siti in presenza, quindi disponibili a tutti)</b><br/>
+- Si possono caricare esercizi inventati, che trattino comunque gli argomenti tenuti durante il corso<br/>
+- Si possono caricare esercizi tratti da libri<br/>
+- NON possono essere caricati soluzioni di esami passati le cui tracce non sono state rese pubbliche dai professori stessi, esercizi di Homework e Progetti in corso<br/>
+- NON si possono caricare esercizi pubblici (e non) che vadano in seguito consegnati ai professori per aumentare il voto dell'esame<br/>
+- Se non si è certi di poter caricare certi esercizi chiedere prima l'eventuale autorizzazione ai professori, spiegando in cosa consiste il progetto<br/>
 
 <h4>Chiunque non rispetti le regole sopracitate se ne assume la totale responsabilità! (ricordate che qui si vede chi ha caricato cosa e quando)</h4>
 
