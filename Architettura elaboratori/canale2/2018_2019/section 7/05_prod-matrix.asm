@@ -1,9 +1,9 @@
 # http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
 # Svolto da Alessio Giovannini
 
-#Definita una matrice in memoria di 8 righe e 8 colonne con elementi halfword, A8x8, stampare in output una nuova matrice B8x4 in cui le colonne sono date 
-# dal prodotto degli elementi delle colonne della matrice originaria: 
-# cioè B4x8 
+# Definita una matrice in memoria di 8 righe e 8 colonne con elementi halfword, A8x8, stampare in output una nuova matrice B8x4 
+# in cui le colonne sono date dal prodotto degli elementi delle colonne della matrice originaria: 
+# cioe' B4x8 
 # b1,1=a1,1*a1,2; 
 # b1,2=a1,3*a1,4; 
 # b1,3=a1,5*a1,6;
@@ -67,12 +67,12 @@ main:
 			calc_idx						# Calcolo primo indice  (chiamata alla macro)
 			addi $j, $j, 1					# Incremento contatore
 			
-			lh $t8, M($idx)			# Caricamento elemento 
+			lh $t8, M($idx)					# Caricamento elemento 
 			
 			calc_idx						# Calcolo del secondo indice (chiamata alla macro)
 			
 			lh $a0, M($idx)		
-			mul $a0, $a0, $t8		# calcolo del risultato
+			mul $a0, $a0, $t8				# calcolo del risultato
 			li $v0, 1
 			syscall
 			

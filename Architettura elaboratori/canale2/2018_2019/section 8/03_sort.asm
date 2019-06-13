@@ -41,13 +41,13 @@ ORDINA:
 	move $inn, $idx					# Imposta il ciclo interno
 	
 	set:
-	bge $idx, 5, print				
+		bge $idx, 5, print				
 	
-	sll $offs, $idx, 2				# Calcolo l'offset del indice primario
-	lw $now, inp($offs)				# Elemento indice primario
-	move $min, $now					# Impostazione del minimo
-	addi $idx, $idx, 1				# Incrementa contatore primario
-	move $inn, $idx 				# Setto l'indice del ciclo innestato
+		sll $offs, $idx, 2				# Calcolo l'offset del indice primario
+		lw $now, inp($offs)				# Elemento indice primario
+		move $min, $now					# Impostazione del minimo
+		addi $idx, $idx, 1				# Incrementa contatore primario
+		move $inn, $idx 				# Setto l'indice del ciclo innestato
 	
 	inner:
 		bge $inn, 6, insert

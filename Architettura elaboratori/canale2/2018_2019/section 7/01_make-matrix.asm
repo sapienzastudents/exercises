@@ -33,11 +33,11 @@ main:
 			bgt $j, $C, continue
 			
 			subi $idx, $i, 1				#
-			mul $idx, $C, $idx		# Calcolo indice matrice
-			subi $t8, $j, 1				# C*(riga-1)+(colonna-1)
-			add $idx, $idx, $t8		#
+			mul $idx, $C, $idx				# Calcolo indice matrice
+			subi $t8, $j, 1					# C*(riga-1)+(colonna-1)
+			add $idx, $idx, $t8				#
 			
-			sll $offs, $idx, 2			# Calcolo dell'offset
+			sll $offs, $idx, 2				# Calcolo dell'offset
 			lw $a0, M($offs)		
 			li $v0, 1
 			syscall							# Caricamento e stampa elemento

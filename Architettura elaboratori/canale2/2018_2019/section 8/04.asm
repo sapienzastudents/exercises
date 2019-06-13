@@ -24,7 +24,7 @@ COMPLESSA:
 	
 	div $a, $b
 	mflo $e						# a / b
-	mfhi $fv							#a % b
+	mfhi $fv					#a % b
 	
 	jal QUADRATI
 	

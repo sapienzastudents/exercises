@@ -23,16 +23,16 @@ li $v0, 5
 syscall
 move $y, $v0 							# Lettura e posizionamento di y
 
-jal func									# Chiamata alla funzione ricorsiva
+jal func								# Chiamata alla funzione ricorsiva
 
 lw $v0, ($sp)							# Recupero del risultato finale
 
 move $a0,$v0
 li $v0, 1
-syscall										# Stampa il risultato finale
+syscall									# Stampa il risultato finale
 
 li $v0,10
-syscall					   					# Fine del programma
+syscall					   				# Fine del programma
 
 func:
 	#salvataggio dei valori
@@ -41,15 +41,15 @@ func:
 	sw $x, 4($sp)
 	sw $y, 8($sp) 
 	
-	beqz $x, cbase 					# Se l'argomento in $a0 � 0 allora ci troviamo nel caso base	
-	beqz $y, cbase   					# Se l'argomento in $a1 � 0 allora ci troviamo nel caso base
+	beqz $x, cbase 						# Se l'argomento in $a0 e' 0 allora ci troviamo nel caso base	
+	beqz $y, cbase   					# Se l'argomento in $a1 e' 0 allora ci troviamo nel caso base
 	
-	#swap (scambia la x con la y poich� ad ogni chiamata vanno invertiti)
+	#swap (scambia la x con la y poiche' ad ogni chiamata vanno invertiti)
 	subi $t0, $x, 1    					# Decremento di x
 	move $x, $y		 
 	move $y, $t0
 	
-	jal func								# Richiamo la funzione con x decrementato
+	jal func							# Richiamo la funzione con x decrementato
 	
 	lw $v0, 0($sp)
 	lw $ra, 4($sp)
@@ -64,8 +64,8 @@ func:
 	
 	
 cbase:
-	li $v0,1				   					# Risultato
+	li $v0,1				   			# Risultato
 	addi $sp, $sp, 12					# Recuperiamo lo spazio sullo stack
 	subi $sp, $sp, 4					# Aggiungiamo spazio per il risutato
 	sw $v0, 0($sp)						# Salviamo il risultato del caso base
-	jr $ra				   					# Ritorna al chiamante
+	jr $ra				   				# Ritorna al chiamante

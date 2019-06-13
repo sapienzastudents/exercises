@@ -4,18 +4,18 @@
 # Scrivere un programma in linguaggio assembly MIPS che riceve in ingresso 
 # una sequenza di N numeri interi. I numeri sono memorizzati in un vettore. 
 # Il valore N è inserito dall’utente, ma il vettore può contenere al massimo 30 numeri.
-# Terminato l'inserimento della sequenza di numeri, il programma deve veri�?care se 
+# Terminato l'inserimento della sequenza di numeri, il programma deve verificare se 
 # gli elementi del vettore sono tutti uguali tra loro.
 
 .globl main 
 
 .data
-	arr: .space 120     												    											# Array contenente gli interi passati in input (max 120 = 30elementi * 4byte)
-	max: .word 30 																									# Massimo di elementi memorizzabili in arr
+	arr: .space 120     												    		# Array contenente gli interi passati in input (max 120 = 30elementi * 4byte)
+	max: .word 30 																	# Massimo di elementi memorizzabili in arr
 	err: .asciiz "Il vettore non puo' contenere piu' di 30 elementi.."   			# Messaggio di errore
 	start: .asciiz "Inserire il numero di elementi da immettere: "      			# Messaggio di inizio
-	y: .asciiz "Tutti gli elementi sono uguali tra di loro"									# Stato finale positivo
-	n: .asciiz "Gli elementi non sono tutti uguali"												# Stato finale negativo
+	y: .asciiz "Tutti gli elementi sono uguali tra di loro"							# Stato finale positivo
+	n: .asciiz "Gli elementi non sono tutti uguali"									# Stato finale negativo
 	
 
 .eqv $curr, $t0				# Valore corrente in esame

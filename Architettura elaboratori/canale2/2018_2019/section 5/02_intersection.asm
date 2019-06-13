@@ -40,9 +40,9 @@ store:
 	bge $i, 5, continue
 	
 	li $v0, 5
-	syscall 			# Legge intero da input
+	syscall 				# Legge intero da input
 	
-	sll $idx, $i, 2			# Indice con offsett per accedere al vettore
+	sll $idx, $i, 2			# Indice con offset per accedere al vettore
 	sw $v0, init($idx) 		# Salva il primo vettore immesso
 	
 	addi $i, $i, 1

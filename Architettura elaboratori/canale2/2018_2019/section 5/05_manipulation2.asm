@@ -1,11 +1,12 @@
 # http://arch2.000webhostapp.com/Esercizi.html <-- Sito degli esercizi
 # Svolto da Alessio Giovannini
 
-# Scrivere un programma in linguaggio assembly MARS che legga una stringa introdotta da tastiera. La stringa contiene sia caratteri maiuscoli che caratteri minuscoli, 
-# e complessivamente al piu' 100 caratteri. Il programma deve svolgere le seguenti operazioni:
+# Scrivere un programma in linguaggio assembly MARS che legga una stringa introdotta da tastiera. La stringa contiene 
+# sia caratteri maiuscoli che caratteri minuscoli, e complessivamente al piu' 100 caratteri. 
+# Il programma deve svolgere le seguenti operazioni:
 # - visualizzare la stringa inserita
-# - costruire una nuova stringa in cui il primo carattere di ciascuna parola nella frase di partenza e' stato reso maiuscolo. Tutti gli altri caratteri devono essere resi minuscoli. 
-#    Il programma deve memorizzare la nuova stringa
+# - costruire una nuova stringa in cui il primo carattere di ciascuna parola nella frase di partenza e' stato reso maiuscolo. 
+#   Tutti gli altri caratteri devono essere resi minuscoli. Il programma deve memorizzare la nuova stringa
 # - visualizzare la nuova frase.
 # Ad esempio la frase "cHe bElLA gIOrnaTa" diviene "Che Bella Giornata".
 
@@ -17,8 +18,8 @@
 
 .eqv $bit, $t0									# Indica il bit in valutazione
 .eqv $source, $t1								# Conterra' indirizzo del valore passato in input
-.eqv $dest, $t2								# Conterra' il valore eventualmente modificato dell'input
-.eqv $prev, $t3								# Ad ogni valutazione viene salvato in questa variabile il precedente in ordine 
+.eqv $dest, $t2									# Conterra' il valore eventualmente modificato dell'input
+.eqv $prev, $t3									# Ad ogni valutazione viene salvato in questa variabile il precedente in ordine 
 .eqv $stat1, $t4								# Variabile per controllo caratteri
 .eqv $stat2, $t5								# Variabile per controllo caratteri
 
@@ -26,21 +27,21 @@
 
 main:
 	la $a0, inp									# Indirizzo del buffer
-	li $a1,100 										# Limite di caratteri della stringa
+	li $a1,100 									# Limite di caratteri della stringa
 	li $v0,8
-	syscall											# Leggi la stringa
+	syscall										# Leggi la stringa
 	
-	la $source, inp							# Legge l'indirizzo del vettore sorgente
-	la  $dest, out								# Legge l'indirizzo del vettore destinazione
-	li $bit, 1										# Valore fittizio per non falsare il test del loop
-	li $prev, ' '									# Carichiamo lo spazio vuoto in $prev cosi' anche la prima lettera della frase pu� essere capitalizzata
+	la $source, inp								# Legge l'indirizzo del vettore sorgente
+	la $dest, out								# Legge l'indirizzo del vettore destinazione
+	li $bit, 1									# Valore fittizio per non falsare il test del loop
+	li $prev, ' '								# Carichiamo lo spazio vuoto in $prev cosi' anche la prima lettera della frase puo' essere capitalizzata
 loop:
 	beqz $bit, end
 	lb $bit, ($source)
 	
 	move $a0, $bit
 	li $v0, 11
-	syscall											# Stampa i bit del vettore originale
+	syscall										# Stampa i bit del vettore originale
 	
 	# Si setta il valore di base dei controlli
 	move $stat1, $zero
@@ -63,9 +64,9 @@ loop:
 	bnez $stat1, minimize					# Se il valore precendente non e' lo spazio allora ci troviamo all'interno di una frase 
 
 normal:
-	sb $bit, ($dest)							# Salviamo il carattere senza modificarlo
+	sb $bit, ($dest)						# Salviamo il carattere senza modificarlo
 	
-	addi $source, $source, 1 			# Incremento dell'indirizzo per locazione del prossimo bit da caricare	
+	addi $source, $source, 1 				# Incremento dell'indirizzo per locazione del prossimo bit da caricare	
 	addi $dest, $dest, 1 					# Incremento dell'indirizzo per locazione del prossimo bit da salvare
 	move $prev, $bit 						# Il bit in esame diventa il bit precedente per i successivi controlli del ciclo
 	
@@ -74,18 +75,18 @@ normal:
 end:
 	la $a0, out
 	li $v0, 4
-	syscall 											# Stampa la stringa di output
+	syscall 								# Stampa la stringa di output
 	
 	li $v0, 10
-	syscall											# Fine del programma
+	syscall									# Fine del programma
 
 # Questa subroutine effettua un uppercase, ma controlla anche se ci si trova all'inizio di una frase
 capitalize:											
-	bne $prev, ' ', normal					#Se il precedente non e' uno spazio la lettera non dece essere trasformata e si prosegue con il semblice salvataggio
+	bne $prev, ' ', normal					# Se il precedente non e' uno spazio la lettera non dece essere trasformata e si prosegue con il semblice salvataggio
 	subi $bit, $bit, 32
-	sb $bit, ($dest)							# Salva il bit nel vettore di destinazione
+	sb $bit, ($dest)						# Salva il bit nel vettore di destinazione
 	
-	addi $source, $source, 1 			# Incremento dell'indirizzo per locazione del prossimo bit da caricare	
+	addi $source, $source, 1 				# Incremento dell'indirizzo per locazione del prossimo bit da caricare	
 	addi $dest, $dest, 1 					# Incremento dell'indirizzo per locazione del prossimo bit da salvare
 	
 	move $prev, $bit 						# Il bit in esame diventa il bit precedente per i successivi controlli del ciclo
@@ -95,7 +96,7 @@ capitalize:
 minimize:
 	beq $prev, ' ', normal					# Se il precedente non e' uno spazio la lettera non deve essere trasformata e si prosegue con il semblice salvataggio
 	addi $bit, $bit, 32
-	sb $bit, ($dest)							# Salva il bit nel vettore di destinazione
+	sb $bit, ($dest)						# Salva il bit nel vettore di destinazione
 	
 	addi $source, $source, 1		 		# Incremento dell'indirizzo per locazione del prossimo bit da caricare	
 	addi $dest, $dest, 1 					# Incremento dell'indirizzo per locazione del prossimo bit da salvare

@@ -21,21 +21,21 @@
 
 .data
 	A: .word 12, 74, 06, 07, 99, 10, 11, 16, 00, 03, 20, 21		# Matrice originale
-	C: 4																				# Numero di colonne
-	R: 3																				# Numero di righe
+	C: 4														# Numero di colonne
+	R: 3													    # Numero di righe
 
 .eqv $C, $t0									# Numero di colonne
 .eqv $R, $t1									# Numero di righe
 .eqv $i, $t2									# Indice righe
 .eqv $j, $t3									# Indice colonne
-.eqv $idx, $t4								# Indice matrice
-.eqv $count, $t5							# Contatore per andata a capo							
+.eqv $idx, $t4									# Indice matrice
+.eqv $count, $t5								# Contatore per andata a capo							
 	
 .text
 main:
 	lw $C, C									# Numero di colonne
 	lw $R, R									# Numero di righe
-	li $i, 1										# Indice righe
+	li $i, 1									# Indice righe
 	li $j 1										# Indice colonne
 
 	for_riga:

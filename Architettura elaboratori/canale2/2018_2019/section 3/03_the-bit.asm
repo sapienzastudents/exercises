@@ -7,7 +7,7 @@
 .globl main
 
 .data
-	test1: .word 31 			# In binario 11111
+	test1: .word 31 		# In binario 11111
 	test2: .word 26			# In binario 11010
 	test3: .word 16			# In binario 10000
 	test4: .word 69			# In binario 1000101

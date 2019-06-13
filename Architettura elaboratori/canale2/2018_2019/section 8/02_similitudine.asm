@@ -40,11 +40,11 @@ SIMILITUDINE:
 	lb $f_bit, ($f_addr)
 	lb $s_bit, ($s_addr)
 	
-	beq $f_bit, 10, end				# Se il carattere è quello terminatore abbiamo finito la stringa
-	beq $s_bit, 10, end				# Se il carattere è quello terminatore abbiamo finito la stringa
+	beq $f_bit, 10, end				# Se il carattere e' quello terminatore abbiamo finito la stringa
+	beq $s_bit, 10, end				# Se il carattere e' quello terminatore abbiamo finito la stringa
 	
 	seq $t5, $f_bit, $s_bit			# 1 se i caratteri nella stessa posizione sono uguali, 0 altrimenti
-	add $count, $count, $t5		# Aggiorna il contatore
+	add $count, $count, $t5			# Aggiorna il contatore
 	
 	addi $f_addr, $f_addr, 1		# Aggiornamento dell'indirizzo
 	addi $s_addr, $s_addr, 1		# Aggiornamento dell'indirizzo della seconda stringa

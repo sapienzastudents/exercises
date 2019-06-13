@@ -27,7 +27,7 @@
 .globl main
 
 .data
-	union: 	.half 0:8						# Insieme contenente l'unione dei due insiemi
+	union: 		.half 0:8						# Insieme contenente l'unione dei due insiemi
 	inters: 	.half 0:4						# Insieme contenente l'intersezione dei due insiemi
 	diff: 		.half 0:4						# Insieme contenente la differenza tra i due insiemi
 
@@ -194,7 +194,7 @@ differenza:
 	lh $elB, ($b)									# Carico l'elemento di B
 	addi $b, $b, 2								# Incremento l'indirizzo di B
 	seq $a0, $elA, $elB						# 1 se gli elementi sono uguali, 0 altrimenti
-	add $a1, $a1,$a0							# Se il risultato sara' 0 allora l'elemento di A non sarà in B
+	add $a1, $a1,$a0							# Se il risultato sara' 0 allora l'elemento di A non sarï¿½ in B
 	j check_diff									# ripeto il ciclo sul prossimo elemento
 		
 end_sub:

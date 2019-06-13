@@ -10,53 +10,48 @@
 	A: .word 42
 	B: .word 31
 
-.eqv $res,  $t0
 .eqv $a,  $t1  
 .eqv $b,  $t2 
-.eqv $idx, $t7
+.eqv $idx, $t3
+.eqv $max, $t4
 
 .text
 main:
-	lw $a, A
-	lw $b, B
-	li $idx, 32
-	
-	andi $t3,$a, 0x80000000			#Valore del bit piu' significativo 
-	andi $t4,$b, 0x80000000		#Valore del bit piu' significativo
-	
-	sne $res, $t3, 0x80000000
-	bnez $res, end
-	
-	seq $res, $t4, 0x80000000
-	bnez $res, end  
-	
-repeat:
-	andi $t3,$a, 0x80000000		#Valore del bit piu' significativo 
-	andi $t4,$b, 0x80000000		#Valore del bit piu' significativo
-	
-	beq $t3, 0x80000000, 
-	
-	
-	sll $a, $a,1
-	sll $b, $b,1
+	# Carico i due valori da confrontare
+	la $a, A	
+	la $b, B
+	li $max, 32
 
-	seq 
+for:
+	bge $idx, $max, end
+	lb $t9, ($a)
+	lb $t8, ($b)
 
-	subi $idx, $idx, 1
-	bgtz $idx, repeat
+	addi $a, $a, 1
+	addi $b, $b, 1
+
+	bgt $t9, $t8, maxA
+
+	bgt $t8, $t9, maxB
+
+	addi $idx, $idx, 1
 
 end:
 	li $v0, 10
+	syscall					# Fine del programma
+
+maxA:
+	li $t0, 0
+	move $a0, $t0
+	li $v0, 1
 	syscall
 
-bigger:
-	move $a0, $res
-	li $v0,1
-	syscall
 	j end
 
+maxB:
+	li $t0, 1
+	move $a0, $t0
+	li $v0, 1
+	syscall
 
-
-
-
-
+	j end
