@@ -44,3 +44,6 @@ Le esercitazioni dei corsi attualmenti presenti sono:
 * **Metodologie di programmazione**
     * 2° canale mantenuto da  
         - [Andrea Raieta](https://gitlab.com/andreara92)
+* **Progettazione di Algoritmi**
+    * 2° canale mantenuto da  
+        - [Emanuele Petriglia](https://gitlab.com/ema-pe)
