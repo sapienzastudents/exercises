@@ -31,19 +31,22 @@ Le esercitazioni dei corsi attualmenti presenti sono:
 
 * **Architettura degli Elaboratori**  
     * 2° canale mantenuto da  
-        - [Alessio Giovannini](https://gitlab.com/solifugo)  
+        - [Alessio Giovannini](https://gitlab.com/solifugo)  AA(18/19)
         - [Stefano](https://gitlab.com/themrpink)
     * 1° canale mantenuto da  
         - [Andrea Gasparini](https://gitlab.com/GaspRulez)
 * **Programmazione per il Web** 
     * Mantenuto da  
-        - [Alessio Giovannini](https://gitlab.com/solifugo)
+        - [Alessio Giovannini](https://gitlab.com/solifugo) AA(17/18)
 * **Linguaggi e tecnologie per il web**
     * Mantenuto da  
-        - [Alessio Giovannini](https://gitlab.com/solifugo)
+        - [Alessio Giovannini](https://gitlab.com/solifugo) AA(18/19)
 * **Metodologie di programmazione**
     * 2° canale mantenuto da  
         - [Andrea Raieta](https://gitlab.com/andreara92)
 * **Progettazione di Algoritmi**
     * 2° canale mantenuto da  
         - [Emanuele Petriglia](https://gitlab.com/ema-pe)
+* **Programmazione di Sistemi Multicore**
+    * Mantenuto da
+        - [Alessio Giovannini](https://gitlab.com/solifugo) AA(19/20)
