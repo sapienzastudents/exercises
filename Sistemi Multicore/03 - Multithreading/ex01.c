@@ -12,20 +12,27 @@ e scritture contemporaneamente. Risolvere il problema usando i mutex.
 
 pthread_mutex_t mymutex = PTHREAD_MUTEX_INITIALIZER;
 char* str[10];
+int job = 0;
 
-void* *writeStr(void *p){
-    pthread_mutex_lock(&mymutex);
-
+void * writeStr(void *p){
+    pthread_mutex_lock(&mymutex);       //Esegue un lock
     
-    pthread_mutex_unlock(&mymutex);
-    pthread_exit((void *)0);
+    sprintf(p, "ciaociao\n");           //scrive una stringa
+    job = 1;
+    pthread_mutex_unlock(&mymutex);     //Sblocca
+    return NULL;
 }
 
-void* *readStr(void *p){
+void * readStr(void *p){
+    while(job==0){          // finchè non è stato scritto nulla non leggere
+        continue;
+    }
     pthread_mutex_lock(&mymutex);
 
+    printf("Contenuto della stringa: %s",p);
+
     pthread_mutex_unlock(&mymutex);
-    pthread_exit((void *)0);
+    return NULL;
 }
 
 int main(){
@@ -47,6 +54,10 @@ int main(){
             printf("Errore nella creazione del thread: %d\n",rc);
             return rc;
         }
+    }
+
+    for(int i=0;i<N_THREAD;i++){
+        pthread_join(threads[i],NULL);
     }
 
     return 0;
