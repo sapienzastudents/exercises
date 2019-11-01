@@ -10,11 +10,12 @@ elementi.
 */
 
 #include <stdio.h>
+#include <ctype.h>
 
 void checkStr(char* arr){
     int i=0;
     while(arr[i] != '\0'){
-        char x = (arr[i]<='9' && arr[i]>='0')? '*' : arr[i];
+        char x = (isdigit(arr[i])) ? '*' : arr[i];
         printf("%c",x);
         i++;
     }
